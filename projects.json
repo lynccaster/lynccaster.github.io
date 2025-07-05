@@ -1,0 +1,16 @@
+{
+  "projects": [
+    {
+      "title": "LLM Chatbot",
+      "description": "Private local AI chatbot with Ollama and Langchain.",
+      "live": "https://yourllmdemo.com",
+      "github": "https://github.com/yourname/llm-chatbot"
+    },
+    {
+      "title": "Bakery App",
+      "description": "Flutter-powered bakery ordering system with Supabase backend.",
+      "live": "https://bakerydemo.com",
+      "github": "https://github.com/yourname/bakery-app"
+    }
+  ]
+}

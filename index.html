@@ -1,40 +1,169 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Your Name – Portfolio</title>
+  <title>Lynccaster – Creative Technologist</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- AOS Animation Library -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <!-- Swiper Carousel -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <body>
-  <div class="container">
-    <button class="toggle-theme">🌓 Toggle Theme</button>
-    <header>
-      <h1>Your Name</h1>
-      <p>Frontend Developer • Designer • Freelancer</p>
-    </header>
-    <section>
-      <h2>About Me</h2>
-      <p>Hello! I specialize in creating delightful web experiences. I code with care and design with intent.</p>
-    </section>
-    <section>
-      <h2>Projects</h2>
-      <ul id="projects-list">
-        <li>
-          <strong>Project One</strong><br>
-          E-commerce platform with Supabase & Next.js<br>
-          <a href="#">Live Demo</a> | <a href="#">GitHub</a>
-        </li>
+  <!-- Animated Background -->
+  <div class="animated-bg"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar glass-nav">
+    <div class="nav-content">
+      <span class="logo gradient-text">Lynccaster</span>
+      <ul class="nav-links">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
+      <button class="toggle-theme" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section id="home" class="hero" data-aos="fade-up">
+      <div class="hero-content">
+        <h1 class="gradient-text animated-text" id="hero-title">Lynccaster</h1>
+        <p class="subtitle animated-text" id="hero-sub">Creative Technologist & Digital Craftsman</p>
+        <p class="hero-desc animated-text" id="hero-desc">Inventing the future of digital experience.<br> Bridging code, design, and imagination.</p>
+        <div class="hero-socials">
+          <a href="mailto:lynccaster@example.com" title="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://github.com/lynccaster" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://linkedin.com/in/lynccaster" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn primary">View Projects</a>
+          <a href="#contact" class="btn secondary">Get in Touch</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <svg width="260" height="260" viewBox="0 0 220 220" class="hero-svg-anim">
+          <defs>
+            <radialGradient id="globeGrad" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#fff" stop-opacity="0.8"/>
+              <stop offset="100%" stop-color="#6c5ce7" stop-opacity="0.2"/>
+            </radialGradient>
+          </defs>
+          <circle cx="110" cy="110" r="90" fill="url(#globeGrad)"/>
+          <g stroke="#8b5cf6" stroke-width="1.5" opacity="0.7">
+            <ellipse cx="110" cy="110" rx="80" ry="30"/>
+            <ellipse cx="110" cy="110" rx="60" ry="80" transform="rotate(30 110 110)"/>
+            <ellipse cx="110" cy="110" rx="60" ry="80" transform="rotate(-30 110 110)"/>
+          </g>
+          <g stroke="#00f2fe" stroke-width="1" opacity="0.5">
+            <ellipse cx="110" cy="110" rx="70" ry="20"/>
+            <ellipse cx="110" cy="110" rx="40" ry="90" transform="rotate(60 110 110)"/>
+          </g>
+        </svg>
+      </div>
     </section>
-    <section>
+
+    <section id="about" class="glass-card fade-section" data-aos="fade-up">
+      <h2>About Me</h2>
+      <p>I'm a Creative Technologist who bridges the gap between design and development. I craft immersive digital experiences and transform complex ideas into elegant, interactive solutions. My approach combines technical expertise with creative innovation, ensuring every project is both functional and unforgettable.</p>
+    </section>
+
+    <section id="projects" class="fade-section" data-aos="fade-up">
+      <h2>Featured Projects</h2>
+      <div class="project-filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="ai">AI</button>
+        <button class="filter-btn" data-filter="mobile">Mobile</button>
+        <button class="filter-btn" data-filter="web">Web</button>
+      </div>
+      <div class="projects-grid" id="projects-list">
+        <!-- Projects will be loaded dynamically via JavaScript -->
+      </div>
+    </section>
+
+    <section id="skills" class="glass-card fade-section" data-aos="fade-up">
+      <h2>Skills & Expertise</h2>
+      <div class="skills-bars">
+        <div class="skill-bar" data-skill="HTML5/CSS3" data-level="95" title="Expert in semantic, accessible markup and modern CSS."></div>
+        <div class="skill-bar" data-skill="JavaScript" data-level="92" title="ES6+, TypeScript, and modern frameworks."></div>
+        <div class="skill-bar" data-skill="React" data-level="90" title="Hooks, context, and advanced patterns."></div>
+        <div class="skill-bar" data-skill="Node.js" data-level="85" title="APIs, backend, and tooling."></div>
+        <div class="skill-bar" data-skill="UI/UX Design" data-level="93" title="Wireframing, prototyping, and user testing."></div>
+        <div class="skill-bar" data-skill="WebGL" data-level="80" title="3D graphics and creative coding."></div>
+        <div class="skill-bar" data-skill="Three.js" data-level="78" title="Interactive 3D experiences."></div>
+        <div class="skill-bar" data-skill="Creative Coding" data-level="88" title="Generative art and visual effects."></div>
+        <div class="skill-bar" data-skill="Responsive Design" data-level="97" title="Mobile-first, adaptive layouts."></div>
+        <div class="skill-bar" data-skill="Animation" data-level="91" title="CSS, JS, and SVG motion."></div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="glass-card fade-section" data-aos="fade-up">
+      <h2>Testimonials</h2>
+      <div class="swiper testimonials-carousel" id="testimonials-carousel">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide testimonial active">
+            <p>“Lynccaster is a rare blend of creative and technical. Our product launch was a huge success thanks to their vision.”</p>
+            <span>– Alex, Product Lead</span>
+          </div>
+          <div class="swiper-slide testimonial">
+            <p>“A true professional. The UI/UX was stunning and the code was flawless.”</p>
+            <span>– Jamie, CEO</span>
+          </div>
+          <div class="swiper-slide testimonial">
+            <p>“Working with Lynccaster was a joy. Every detail was pixel-perfect.”</p>
+            <span>– Morgan, Designer</span>
+          </div>
+        </div>
+        <div class="carousel-controls">
+          <button class="carousel-prev swiper-button-prev" aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+          <button class="carousel-next swiper-button-next" aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="glass-card fade-section" data-aos="fade-up">
       <h2>Contact</h2>
-      <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
-      <p>GitHub: <a href="https://github.com/yourname">@yourname</a></p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/yourname">linkedin.com/in/yourname</a></p>
+      <form class="contact-form" autocomplete="off">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn primary">Send Message</button>
+        <div class="form-message" id="form-message"></div>
+      </form>
+      <div class="contact-socials">
+        <a href="mailto:lynccaster@example.com" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="https://github.com/lynccaster" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/lynccaster" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      </div>
     </section>
-    <footer>&copy; 2025 Your Name</footer>
-  </div>
+
+    <footer class="footer-minimal">
+      <p>&copy; 2025 Lynccaster</p>
+    </footer>
+  </main>
+  <button class="scroll-top" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
+  <!-- GSAP -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <!-- AOS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <!-- Swiper -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

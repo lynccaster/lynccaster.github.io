@@ -415,6 +415,39 @@ document.querySelectorAll('section').forEach(section => {
   sectionObserver.observe(section);
 });
 
+// Tech Item Interactions
+const techItems = document.querySelectorAll('.tech-item');
+
+techItems.forEach(item => {
+  item.addEventListener('click', () => {
+    const tech = item.dataset.tech;
+    addNotification(`🚀 ${tech} - This is one of my core specialties! Check out my projects to see it in action.`);
+    
+    // Add click animation
+    item.style.transform = 'translateY(-8px) scale(1.1)';
+    setTimeout(() => {
+      item.style.transform = '';
+    }, 200);
+  });
+  
+  // Add mouse enter effect for particles
+  item.addEventListener('mouseenter', () => {
+    const particles = item.querySelectorAll('.tech-particles span');
+    particles.forEach((particle, index) => {
+      particle.style.animationDuration = '1s';
+      particle.style.animationDelay = `${index * 0.2}s`;
+    });
+  });
+  
+  item.addEventListener('mouseleave', () => {
+    const particles = item.querySelectorAll('.tech-particles span');
+    particles.forEach(particle => {
+      particle.style.animationDuration = '3s';
+      particle.style.animationDelay = '';
+    });
+  });
+});
+
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
   // Set initial active nav link

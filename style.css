@@ -2845,7 +2845,7 @@ body.mouse-moving::after {
   
   .theme-toggle {
     top: 1rem;
-    right: 5rem; /* Move theme toggle to the left to avoid overlap with mobile menu */
+    right: 6.5rem; /* Increased spacing from mobile menu toggle */
   }
   
   #theme-toggle {
@@ -2886,7 +2886,7 @@ body.mouse-moving::after {
   }
   
   .theme-toggle {
-    right: 4.5rem; /* Adjust for smaller screens */
+    right: 6rem; /* Increased spacing for smaller screens */
   }
   
   .navbar .container {

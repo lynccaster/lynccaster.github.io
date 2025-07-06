@@ -1477,3 +1477,471 @@ a:focus {
     page-break-inside: avoid;
   }
 }
+
+/* ===== FUTURISTIC FEATURES ===== */
+
+/* AI Assistant */
+.ai-assistant {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1002;
+}
+
+.ai-toggle {
+  background: var(--gradient-primary);
+  border: none;
+  border-radius: 50px;
+  padding: 1rem 1.5rem;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-normal);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.ai-toggle:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-xl);
+}
+
+.ai-toggle i {
+  font-size: 1.25rem;
+  animation: pulse 2s infinite;
+}
+
+.ai-status {
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.ai-panel {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  width: 320px;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--border-color);
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: all var(--transition-normal);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.ai-panel.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.ai-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.ai-header h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.ai-close {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-normal);
+}
+
+.ai-close:hover {
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+}
+
+.ai-content {
+  padding: 1.5rem;
+}
+
+.ai-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+}
+
+.ai-message i {
+  color: var(--primary-color);
+  font-size: 1.25rem;
+  margin-top: 0.125rem;
+}
+
+.ai-message p {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.ai-suggestions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.ai-suggestion {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  font-size: 0.875rem;
+  text-align: left;
+}
+
+.ai-suggestion:hover {
+  background: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+  transform: translateX(4px);
+}
+
+.ai-input {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.ai-input input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-size: 0.875rem;
+}
+
+.ai-input input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.ai-send {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 0.75rem;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+.ai-send:hover {
+  background: var(--primary-dark);
+  transform: scale(1.05);
+}
+
+/* Voice Navigation */
+.voice-nav {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 1002;
+}
+
+.voice-toggle {
+  background: var(--gradient-secondary);
+  border: none;
+  border-radius: 50px;
+  padding: 1rem 1.5rem;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-normal);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.voice-toggle:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-xl);
+}
+
+.voice-toggle i {
+  font-size: 1.25rem;
+}
+
+.voice-status {
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.voice-indicator {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all var(--transition-normal);
+}
+
+.voice-indicator.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.voice-waves {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.voice-waves span {
+  width: 4px;
+  height: 20px;
+  background: var(--secondary-color);
+  border-radius: 2px;
+  animation: voice-wave 1.5s ease-in-out infinite;
+}
+
+.voice-waves span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.voice-waves span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes voice-wave {
+  0%, 100% {
+    height: 20px;
+  }
+  50% {
+    height: 40px;
+  }
+}
+
+/* Hologram Effects */
+.hologram-effect {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%),
+    linear-gradient(-45deg, transparent 30%, rgba(255, 255, 255, 0.05) 50%, transparent 70%);
+  animation: hologram-scan 8s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes hologram-scan {
+  0% {
+    transform: translateX(-100%) translateY(-100%);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%);
+  }
+}
+
+.hologram-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 50% 50%, rgba(var(--primary-color-rgb), 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: hologram-pulse 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes hologram-pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+/* Future Badge */
+.future-badge {
+  display: inline-block;
+  background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-left: 1rem;
+  animation: future-glow 2s ease-in-out infinite;
+  box-shadow: 0 0 20px rgba(var(--accent-color-rgb), 0.3);
+}
+
+@keyframes future-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(var(--accent-color-rgb), 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(var(--accent-color-rgb), 0.6);
+  }
+}
+
+/* Futuristic Button */
+.btn-futuristic {
+  background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+  color: white;
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-futuristic::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-futuristic:hover::before {
+  left: 100%;
+}
+
+.btn-futuristic:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(var(--accent-color-rgb), 0.4);
+}
+
+/* Logo Pulse Effect */
+.logo-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  animation: logo-pulse 2s ease-in-out infinite;
+  opacity: 0.3;
+}
+
+@keyframes logo-pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.3;
+  }
+}
+
+/* Enhanced Typewriter for Future Tech */
+.typewriter {
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: typewriter-glow 3s ease-in-out infinite;
+}
+
+@keyframes typewriter-glow {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.2) drop-shadow(0 0 10px rgba(var(--primary-color-rgb), 0.5));
+  }
+}
+
+/* Responsive Design for Future Features */
+@media (max-width: 768px) {
+  .ai-assistant {
+    bottom: 1rem;
+    right: 1rem;
+  }
+  
+  .ai-panel {
+    width: 280px;
+    right: -1rem;
+  }
+  
+  .voice-nav {
+    bottom: 1rem;
+    left: 1rem;
+  }
+  
+  .future-badge {
+    margin-left: 0.5rem;
+    font-size: 0.625rem;
+    padding: 0.125rem 0.5rem;
+  }
+  
+  .ai-toggle,
+  .voice-toggle {
+    padding: 0.75rem 1rem;
+  }
+  
+  .ai-status,
+  .voice-status {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .ai-panel {
+    width: 260px;
+    right: -2rem;
+  }
+  
+  .ai-content {
+    padding: 1rem;
+  }
+  
+  .ai-suggestions {
+    gap: 0.25rem;
+  }
+  
+  .ai-suggestion {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.75rem;
+  }
+}

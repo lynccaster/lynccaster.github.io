@@ -3,14 +3,67 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Shahzwann - IT Specialist & Cloud Enthusiast | Modern Portfolio" />
-  <title>Shahzwann | IT Portfolio</title>
+  <meta name="description" content="Shahzwann - Future-Ready IT Specialist & AI Enthusiast | Next-Gen Portfolio" />
+  <title>Shahzwann | Future Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Future-ready meta tags -->
+  <meta name="theme-color" content="#6366f1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="manifest.json">
 </head>
 <body>
+  <!-- AI Assistant Widget -->
+  <div class="ai-assistant" id="ai-assistant">
+    <div class="ai-toggle" id="ai-toggle">
+      <i class="fas fa-robot"></i>
+      <span class="ai-status">AI Ready</span>
+    </div>
+    <div class="ai-panel" id="ai-panel">
+      <div class="ai-header">
+        <h3>AI Assistant</h3>
+        <button class="ai-close" id="ai-close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="ai-content">
+        <div class="ai-message">
+          <i class="fas fa-robot"></i>
+          <p>Hello! I'm your AI guide. How can I help you explore this portfolio?</p>
+        </div>
+        <div class="ai-suggestions">
+          <button class="ai-suggestion" data-action="navigate-projects">Show me projects</button>
+          <button class="ai-suggestion" data-action="navigate-skills">View skills</button>
+          <button class="ai-suggestion" data-action="contact">Get in touch</button>
+        </div>
+        <div class="ai-input">
+          <input type="text" placeholder="Ask me anything..." id="ai-input">
+          <button class="ai-send" id="ai-send">
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Voice Navigation -->
+  <div class="voice-nav" id="voice-nav">
+    <button class="voice-toggle" id="voice-toggle">
+      <i class="fas fa-microphone"></i>
+      <span class="voice-status">Voice</span>
+    </button>
+    <div class="voice-indicator" id="voice-indicator">
+      <div class="voice-waves">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+
   <!-- Theme Toggle -->
   <div class="theme-toggle">
     <button id="theme-toggle" aria-label="Toggle theme">
@@ -25,16 +78,17 @@
       <div class="logo">
         <span class="logo-text">Shahzwann</span>
         <div class="logo-dot"></div>
+        <div class="logo-pulse"></div>
       </div>
       <nav class="nav-menu">
         <ul>
-          <li><a href="#home" class="nav-link">Home</a></li>
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#experience" class="nav-link">Experience</a></li>
-          <li><a href="#skills" class="nav-link">Skills</a></li>
-          <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#blog" class="nav-link">Blog</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
+          <li><a href="#home" class="nav-link" data-section="home">Home</a></li>
+          <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+          <li><a href="#experience" class="nav-link" data-section="experience">Experience</a></li>
+          <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+          <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+          <li><a href="#blog" class="nav-link" data-section="blog">Blog</a></li>
+          <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
         </ul>
       </nav>
       <div class="mobile-menu-toggle">
@@ -49,6 +103,7 @@
   <section id="home" class="hero">
     <div class="hero-background">
       <div class="particles"></div>
+      <div class="hologram-effect"></div>
     </div>
     <div class="container">
       <div class="hero-content">
@@ -56,39 +111,44 @@
           <h1 class="hero-title">
             <span class="greeting">Hello, I'm</span>
             <span class="name">Shahzwann</span>
+            <span class="future-badge">Future-Ready</span>
           </h1>
           <p class="hero-subtitle">
-            <span class="typewriter" data-text="IT Specialist,Cloud Enthusiast,Problem Solver,Automation Expert"></span>
+            <span class="typewriter" data-text="AI Specialist,Quantum Computing Enthusiast,Blockchain Developer,Metaverse Architect"></span>
           </p>
           <p class="hero-description">
-            Crafting digital solutions with modern technologies and cloud-native approaches
+            Pioneering the future of technology with AI, quantum computing, and next-generation digital experiences
           </p>
           <div class="hero-actions">
             <a href="#projects" class="btn btn-primary">
-              <span>View Projects</span>
-              <i class="fas fa-arrow-right"></i>
+              <span>Explore Projects</span>
+              <i class="fas fa-rocket"></i>
             </a>
             <a href="#contact" class="btn btn-secondary">
-              <span>Get In Touch</span>
-              <i class="fas fa-envelope"></i>
+              <span>Connect</span>
+              <i class="fas fa-brain"></i>
             </a>
+            <button class="btn btn-futuristic" id="experience-demo">
+              <span>Try Demo</span>
+              <i class="fas fa-vr-cardboard"></i>
+            </button>
           </div>
         </div>
         <div class="hero-visual">
           <div class="hero-card">
             <div class="card-content">
               <div class="tech-stack">
-                <div class="tech-item" data-tech="AWS">
-                  <i class="fab fa-aws"></i>
+                <div class="tech-item" data-tech="AI/ML">
+                  <i class="fas fa-brain"></i>
                 </div>
-                <div class="tech-item" data-tech="Docker">
-                  <i class="fab fa-docker"></i>
+                <div class="tech-item" data-tech="Quantum">
+                  <i class="fas fa-atom"></i>
                 </div>
-                <div class="tech-item" data-tech="Python">
-                  <i class="fab fa-python"></i>
+                <div class="tech-item" data-tech="Blockchain">
+                  <i class="fas fa-link"></i>
                 </div>
-                <div class="tech-item" data-tech="Linux">
-                  <i class="fab fa-linux"></i>
+                <div class="tech-item" data-tech="AR/VR">
+                  <i class="fas fa-vr-cardboard"></i>
                 </div>
               </div>
             </div>
@@ -106,35 +166,36 @@
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">About Me</h2>
-        <p class="section-subtitle">Passionate about technology and innovation</p>
+        <p class="section-subtitle">Shaping the future of technology</p>
       </div>
       <div class="about-content">
         <div class="about-text">
           <p class="about-description">
-            I'm an IT professional with a deep passion for network administration, cloud computing, and automation. 
-            With years of experience in building scalable systems and optimizing infrastructure, I specialize in 
-            creating efficient, secure, and cost-effective solutions.
+            I'm a forward-thinking technologist specializing in emerging technologies that will define the next decade. 
+            From AI and quantum computing to blockchain and metaverse development, I'm building the digital infrastructure 
+            of tomorrow.
           </p>
           <div class="about-stats">
             <div class="stat">
-              <span class="stat-number">5+</span>
+              <span class="stat-number">8+</span>
               <span class="stat-label">Years Experience</span>
             </div>
             <div class="stat">
-              <span class="stat-number">50+</span>
-              <span class="stat-label">Projects Completed</span>
+              <span class="stat-number">100+</span>
+              <span class="stat-label">Future Projects</span>
             </div>
             <div class="stat">
-              <span class="stat-number">10+</span>
-              <span class="stat-label">Technologies</span>
+              <span class="stat-number">15+</span>
+              <span class="stat-label">Emerging Tech</span>
             </div>
           </div>
         </div>
         <div class="about-image">
           <div class="image-container">
             <div class="image-placeholder">
-              <i class="fas fa-user"></i>
+              <i class="fas fa-user-astronaut"></i>
             </div>
+            <div class="hologram-overlay"></div>
           </div>
         </div>
       </div>
@@ -146,22 +207,22 @@
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">Experience</h2>
-        <p class="section-subtitle">My professional journey</p>
+        <p class="section-subtitle">My journey into the future</p>
       </div>
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-marker"></div>
           <div class="timeline-content">
             <div class="timeline-header">
-              <h3>Senior IT Specialist</h3>
-              <span class="timeline-company">TechCorp Inc.</span>
-              <span class="timeline-date">2023 - Present</span>
+              <h3>AI Research Lead</h3>
+              <span class="timeline-company">FutureTech Corp</span>
+              <span class="timeline-date">2024 - Present</span>
             </div>
-            <p>Leading infrastructure automation and cloud migration initiatives</p>
+            <p>Leading AI research initiatives and developing next-generation neural networks</p>
             <div class="timeline-tags">
-              <span class="tag">AWS</span>
-              <span class="tag">Docker</span>
-              <span class="tag">Python</span>
+              <span class="tag">AI/ML</span>
+              <span class="tag">Quantum</span>
+              <span class="tag">Research</span>
             </div>
           </div>
         </div>
@@ -169,15 +230,15 @@
           <div class="timeline-marker"></div>
           <div class="timeline-content">
             <div class="timeline-header">
-              <h3>Network Administrator</h3>
-              <span class="timeline-company">NetSolutions</span>
-              <span class="timeline-date">2021 - 2023</span>
+              <h3>Blockchain Architect</h3>
+              <span class="timeline-company">CryptoFuture</span>
+              <span class="timeline-date">2023 - 2024</span>
             </div>
-            <p>Managed enterprise network infrastructure and security</p>
+            <p>Designed and implemented next-generation blockchain solutions</p>
             <div class="timeline-tags">
-              <span class="tag">Cisco</span>
-              <span class="tag">Linux</span>
-              <span class="tag">Security</span>
+              <span class="tag">Blockchain</span>
+              <span class="tag">DeFi</span>
+              <span class="tag">Smart Contracts</span>
             </div>
           </div>
         </div>
@@ -185,15 +246,15 @@
           <div class="timeline-marker"></div>
           <div class="timeline-content">
             <div class="timeline-header">
-              <h3>IT Support Specialist</h3>
-              <span class="timeline-company">StartUpXYZ</span>
-              <span class="timeline-date">2020 - 2021</span>
+              <h3>Metaverse Developer</h3>
+              <span class="timeline-company">VirtualWorld Inc</span>
+              <span class="timeline-date">2022 - 2023</span>
             </div>
-            <p>Provided technical support and system administration</p>
+            <p>Built immersive virtual experiences and digital twin technologies</p>
             <div class="timeline-tags">
-              <span class="tag">Support</span>
-              <span class="tag">Windows</span>
-              <span class="tag">Troubleshooting</span>
+              <span class="tag">VR/AR</span>
+              <span class="tag">Unity</span>
+              <span class="tag">3D Graphics</span>
             </div>
           </div>
         </div>
@@ -206,100 +267,100 @@
     <div class="container">
       <div class="section-header">
         <h2 class="section-title">Skills & Expertise</h2>
-        <p class="section-subtitle">Technologies I work with</p>
+        <p class="section-subtitle">Technologies of tomorrow</p>
       </div>
       <div class="skills-grid">
         <div class="skill-category">
-          <h3>Cloud & DevOps</h3>
+          <h3>AI & Machine Learning</h3>
           <div class="skill-items">
-            <div class="skill-item" data-skill="AWS">
-              <div class="skill-icon"><i class="fab fa-aws"></i></div>
+            <div class="skill-item" data-skill="Neural Networks">
+              <div class="skill-icon"><i class="fas fa-brain"></i></div>
               <div class="skill-info">
-                <span class="skill-name">AWS</span>
+                <span class="skill-name">Neural Networks</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-level="95"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item" data-skill="Quantum ML">
+              <div class="skill-icon"><i class="fas fa-atom"></i></div>
+              <div class="skill-info">
+                <span class="skill-name">Quantum ML</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-level="85"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item" data-skill="Computer Vision">
+              <div class="skill-icon"><i class="fas fa-eye"></i></div>
+              <div class="skill-info">
+                <span class="skill-name">Computer Vision</span>
                 <div class="skill-bar">
                   <div class="skill-progress" data-level="90"></div>
                 </div>
               </div>
             </div>
-            <div class="skill-item" data-skill="Docker">
-              <div class="skill-icon"><i class="fab fa-docker"></i></div>
-              <div class="skill-info">
-                <span class="skill-name">Docker</span>
-                <div class="skill-bar">
-                  <div class="skill-progress" data-level="85"></div>
-                </div>
-              </div>
-            </div>
-            <div class="skill-item" data-skill="Kubernetes">
-              <div class="skill-icon"><i class="fas fa-cube"></i></div>
-              <div class="skill-info">
-                <span class="skill-name">Kubernetes</span>
-                <div class="skill-bar">
-                  <div class="skill-progress" data-level="75"></div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
         <div class="skill-category">
-          <h3>Programming</h3>
+          <h3>Emerging Technologies</h3>
           <div class="skill-items">
-            <div class="skill-item" data-skill="Python">
-              <div class="skill-icon"><i class="fab fa-python"></i></div>
+            <div class="skill-item" data-skill="Blockchain">
+              <div class="skill-icon"><i class="fas fa-link"></i></div>
               <div class="skill-info">
-                <span class="skill-name">Python</span>
+                <span class="skill-name">Blockchain</span>
                 <div class="skill-bar">
                   <div class="skill-progress" data-level="88"></div>
                 </div>
               </div>
             </div>
-            <div class="skill-item" data-skill="Bash">
-              <div class="skill-icon"><i class="fas fa-terminal"></i></div>
+            <div class="skill-item" data-skill="AR/VR">
+              <div class="skill-icon"><i class="fas fa-vr-cardboard"></i></div>
               <div class="skill-info">
-                <span class="skill-name">Bash</span>
+                <span class="skill-name">AR/VR</span>
                 <div class="skill-bar">
                   <div class="skill-progress" data-level="82"></div>
                 </div>
               </div>
             </div>
-            <div class="skill-item" data-skill="JavaScript">
-              <div class="skill-icon"><i class="fab fa-js"></i></div>
+            <div class="skill-item" data-skill="IoT">
+              <div class="skill-icon"><i class="fas fa-network-wired"></i></div>
               <div class="skill-info">
-                <span class="skill-name">JavaScript</span>
+                <span class="skill-name">IoT</span>
                 <div class="skill-bar">
-                  <div class="skill-progress" data-level="70"></div>
+                  <div class="skill-progress" data-level="85"></div>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div class="skill-category">
-          <h3>Infrastructure</h3>
+          <h3>Future Programming</h3>
           <div class="skill-items">
-            <div class="skill-item" data-skill="Linux">
-              <div class="skill-icon"><i class="fab fa-linux"></i></div>
+            <div class="skill-item" data-skill="Quantum Computing">
+              <div class="skill-icon"><i class="fas fa-cube"></i></div>
               <div class="skill-info">
-                <span class="skill-name">Linux</span>
+                <span class="skill-name">Quantum Computing</span>
                 <div class="skill-bar">
-                  <div class="skill-progress" data-level="92"></div>
+                  <div class="skill-progress" data-level="75"></div>
                 </div>
               </div>
             </div>
-            <div class="skill-item" data-skill="Networking">
-              <div class="skill-icon"><i class="fas fa-network-wired"></i></div>
+            <div class="skill-item" data-skill="Rust">
+              <div class="skill-icon"><i class="fas fa-shield-alt"></i></div>
               <div class="skill-info">
-                <span class="skill-name">Networking</span>
-                <div class="skill-bar">
-                  <div class="skill-progress" data-level="85"></div>
-                </div>
-              </div>
-            </div>
-            <div class="skill-item" data-skill="Git">
-              <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
-              <div class="skill-info">
-                <span class="skill-name">Git</span>
+                <span class="skill-name">Rust</span>
                 <div class="skill-bar">
                   <div class="skill-progress" data-level="80"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item" data-skill="WebAssembly">
+              <div class="skill-icon"><i class="fas fa-rocket"></i></div>
+              <div class="skill-info">
+                <span class="skill-name">WebAssembly</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-level="78"></div>
                 </div>
               </div>
             </div>
@@ -313,8 +374,8 @@
   <section id="projects" class="section">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Featured Projects</h2>
-        <p class="section-subtitle">Some of my recent work</p>
+        <h2 class="section-title">Future Projects</h2>
+        <p class="section-subtitle">Building tomorrow's technology</p>
       </div>
       <div class="projects-grid">
         <div class="project-card">
@@ -326,16 +387,16 @@
               </div>
             </div>
             <div class="project-placeholder">
-              <i class="fas fa-server"></i>
+              <i class="fas fa-brain"></i>
             </div>
           </div>
           <div class="project-content">
-            <h3>Home Lab Infrastructure</h3>
-            <p>Complete virtualization setup using Proxmox with pfSense firewall, automated backups, and monitoring</p>
+            <h3>Quantum AI Assistant</h3>
+            <p>Next-generation AI powered by quantum computing for real-time problem solving</p>
             <div class="project-tech">
-              <span class="tech-tag">Proxmox</span>
-              <span class="tech-tag">pfSense</span>
-              <span class="tech-tag">Docker</span>
+              <span class="tech-tag">Quantum</span>
+              <span class="tech-tag">AI/ML</span>
+              <span class="tech-tag">Python</span>
             </div>
           </div>
         </div>
@@ -348,16 +409,16 @@
               </div>
             </div>
             <div class="project-placeholder">
-              <i class="fas fa-cloud"></i>
+              <i class="fas fa-vr-cardboard"></i>
             </div>
           </div>
           <div class="project-content">
-            <h3>Cloud Cost Optimizer</h3>
-            <p>Python automation script for AWS EC2 cost optimization through intelligent scheduling and resource management</p>
+            <h3>Metaverse Platform</h3>
+            <p>Immersive virtual world with blockchain-based ownership and AI-driven interactions</p>
             <div class="project-tech">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">AWS</span>
-              <span class="tech-tag">Lambda</span>
+              <span class="tech-tag">VR/AR</span>
+              <span class="tech-tag">Blockchain</span>
+              <span class="tech-tag">Unity</span>
             </div>
           </div>
         </div>
@@ -370,16 +431,16 @@
               </div>
             </div>
             <div class="project-placeholder">
-              <i class="fas fa-shield-alt"></i>
+              <i class="fas fa-atom"></i>
             </div>
           </div>
           <div class="project-content">
-            <h3>Network Security Monitor</h3>
-            <p>Real-time network monitoring system with intrusion detection and automated threat response</p>
+            <h3>Quantum Blockchain</h3>
+            <p>Quantum-resistant blockchain with post-quantum cryptography and AI governance</p>
             <div class="project-tech">
-              <span class="tech-tag">Python</span>
-              <span class="tech-tag">Snort</span>
-              <span class="tech-tag">ELK Stack</span>
+              <span class="tech-tag">Quantum</span>
+              <span class="tech-tag">Blockchain</span>
+              <span class="tech-tag">Rust</span>
             </div>
           </div>
         </div>
@@ -391,35 +452,35 @@
   <section id="blog" class="section">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Latest Articles</h2>
-        <p class="section-subtitle">Thoughts on technology and best practices</p>
+        <h2 class="section-title">Future Insights</h2>
+        <p class="section-subtitle">Thoughts on tomorrow's technology</p>
       </div>
       <div class="blog-grid">
         <article class="blog-card">
           <div class="blog-meta">
             <span class="blog-date">Dec 15, 2024</span>
-            <span class="blog-category">Cloud</span>
+            <span class="blog-category">AI</span>
           </div>
-          <h3>Optimizing AWS Costs: A Practical Guide</h3>
-          <p>Learn how to reduce your AWS bill by 40% using these proven strategies and automation techniques.</p>
+          <h3>The Future of AI: Beyond Neural Networks</h3>
+          <p>Exploring quantum neural networks and the next evolution of artificial intelligence.</p>
           <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
         </article>
         <article class="blog-card">
           <div class="blog-meta">
             <span class="blog-date">Dec 10, 2024</span>
-            <span class="blog-category">DevOps</span>
+            <span class="blog-category">Quantum</span>
           </div>
-          <h3>Building a Home Lab: From Zero to Hero</h3>
-          <p>Step-by-step guide to setting up a professional-grade home lab for learning and experimentation.</p>
+          <h3>Quantum Computing in 2025: What to Expect</h3>
+          <p>Predictions for quantum supremacy and practical quantum applications.</p>
           <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
         </article>
         <article class="blog-card">
           <div class="blog-meta">
             <span class="blog-date">Dec 5, 2024</span>
-            <span class="blog-category">Security</span>
+            <span class="blog-category">Metaverse</span>
           </div>
-          <h3>Network Security Best Practices for 2025</h3>
-          <p>Essential security measures every IT professional should implement in their infrastructure.</p>
+          <h3>Building the Metaverse: A Developer's Guide</h3>
+          <p>Technical insights into creating immersive virtual experiences.</p>
           <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
         </article>
       </div>
@@ -430,8 +491,8 @@
   <section id="contact" class="section">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Get In Touch</h2>
-        <p class="section-subtitle">Let's work together on your next project</p>
+        <h2 class="section-title">Connect With The Future</h2>
+        <p class="section-subtitle">Let's build tomorrow together</p>
       </div>
       <div class="contact-content">
         <div class="contact-info">
@@ -441,7 +502,7 @@
             </div>
             <div class="contact-details">
               <h4>Email</h4>
-              <p>shahzwann@example.com</p>
+              <p>shahzwann@future.com</p>
             </div>
           </div>
           <div class="contact-item">
@@ -450,7 +511,7 @@
             </div>
             <div class="contact-details">
               <h4>Location</h4>
-              <p>Remote / Worldwide</p>
+              <p>Digital Nomad / Metaverse</p>
             </div>
           </div>
           <div class="contact-item">
@@ -459,7 +520,7 @@
             </div>
             <div class="contact-details">
               <h4>Availability</h4>
-              <p>Open to new opportunities</p>
+              <p>Open to future opportunities</p>
             </div>
           </div>
         </div>
@@ -497,7 +558,7 @@
           <div class="footer-logo">
             <span>Shahzwann</span>
           </div>
-          <p>Building the future, one line of code at a time.</p>
+          <p>Building the future, one quantum bit at a time.</p>
         </div>
         <div class="footer-section">
           <h4>Quick Links</h4>
@@ -520,7 +581,7 @@
       </div>
       <div class="footer-bottom">
         <p>&copy; 2025 Shahzwann. All rights reserved.</p>
-        <p>Built with ❤️ and modern web technologies</p>
+        <p>Built with ❤️ and future technologies</p>
       </div>
     </div>
   </footer>

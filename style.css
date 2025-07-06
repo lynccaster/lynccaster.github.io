@@ -72,6 +72,10 @@ body {
   background: var(--navbar-bg);
   transition: var(--transition);
   box-shadow: 0 2px 12px rgba(24,28,36,0.04);
+  /* Remove container constraints for dynamic look */
+  max-width: none;
+  width: 100%;
+  border-radius: 0 0 18px 18px;
 }
 
 .navbar .logo {

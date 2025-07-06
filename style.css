@@ -139,7 +139,6 @@ html, body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-fill-color: transparent;
   letter-spacing: 2.5px;
   margin-bottom: 0.5rem;
   animation: gradient-move 4s linear infinite alternate;

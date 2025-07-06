@@ -1,19 +1,19 @@
 // ===== FUTURISTIC PORTFOLIO SCRIPT =====
 
 // Theme Toggle
-const themeToggle = document.getElementById('theme-toggle');
-const html = document.documentElement;
-
-// Load saved theme
-const savedTheme = localStorage.getItem('theme') || 'dark';
-html.setAttribute('data-theme', savedTheme);
-
-themeToggle.addEventListener('click', () => {
-  const currentTheme = html.getAttribute('data-theme');
-  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  const themeToggle = document.getElementById('theme-toggle');
+  const html = document.documentElement;
   
-  html.setAttribute('data-theme', newTheme);
-  localStorage.setItem('theme', newTheme);
+// Load saved theme
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  html.setAttribute('data-theme', savedTheme);
+  
+  themeToggle.addEventListener('click', () => {
+    const currentTheme = html.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
 });
 
 // AI Assistant
@@ -272,7 +272,7 @@ if (typewriterElement) {
     
     if (!isDeleting && charIndex === currentText.length) {
       setTimeout(() => {
-        isDeleting = true;
+      isDeleting = true;
       }, 2000);
     } else if (isDeleting && charIndex === 0) {
       isDeleting = false;
@@ -288,22 +288,22 @@ if (typewriterElement) {
 
 // Skill Progress Animation
 const skillBars = document.querySelectorAll('.skill-progress');
-const observerOptions = {
+  const observerOptions = {
   threshold: 0.5,
-  rootMargin: '0px 0px -50px 0px'
-};
-
+    rootMargin: '0px 0px -50px 0px'
+  };
+  
 const skillObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
       const skillBar = entry.target;
       const level = skillBar.dataset.level;
       skillBar.style.width = `${level}%`;
       skillObserver.unobserve(skillBar);
-    }
-  });
-}, observerOptions);
-
+      }
+    });
+  }, observerOptions);
+  
 skillBars.forEach(bar => {
   skillObserver.observe(bar);
 });
@@ -445,6 +445,181 @@ techItems.forEach(item => {
       particle.style.animationDuration = '3s';
       particle.style.animationDelay = '';
     });
+  });
+});
+
+// About Stats Counter Animation
+const stats = document.querySelectorAll('.stat-number');
+const statsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const target = entry.target;
+      const finalValue = parseInt(target.dataset.target);
+      animateCounter(target, 0, finalValue, 2000);
+      statsObserver.unobserve(target);
+    }
+  });
+}, { threshold: 0.5 });
+
+stats.forEach(stat => statsObserver.observe(stat));
+
+function animateCounter(element, start, end, duration) {
+  const startTime = performance.now();
+  
+  function updateCounter(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    
+    const current = Math.floor(start + (end - start) * progress);
+    element.textContent = current + '+';
+    
+    if (progress < 1) {
+      requestAnimationFrame(updateCounter);
+    }
+  }
+  
+  requestAnimationFrame(updateCounter);
+}
+
+// Skills Progress Animation
+const skillItems = document.querySelectorAll('.skill-item');
+const skillsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const skillItem = entry.target;
+      const progressBar = skillItem.querySelector('.skill-progress');
+      const level = progressBar.dataset.level;
+      
+      setTimeout(() => {
+        progressBar.style.width = level + '%';
+      }, 500);
+      
+      skillsObserver.unobserve(skillItem);
+    }
+  });
+}, { threshold: 0.3 });
+
+skillItems.forEach(item => skillsObserver.observe(item));
+
+// Project Cards Interactions
+const projectCards = document.querySelectorAll('.project-card');
+
+projectCards.forEach(card => {
+  card.addEventListener('click', () => {
+    const project = card.dataset.project;
+    addNotification(`🔮 ${project} - This project showcases cutting-edge technology!`);
+  });
+  
+  // Add hover effects for project particles
+  card.addEventListener('mouseenter', () => {
+    const particles = card.querySelectorAll('.project-particles span');
+    particles.forEach((particle, index) => {
+      particle.style.animationDuration = '1.5s';
+      particle.style.animationDelay = `${index * 0.3}s`;
+    });
+  });
+  
+  card.addEventListener('mouseleave', () => {
+    const particles = card.querySelectorAll('.project-particles span');
+    particles.forEach(particle => {
+      particle.style.animationDuration = '4s';
+      particle.style.animationDelay = '';
+    });
+  });
+});
+
+// Blog Cards Interactions
+const blogCards = document.querySelectorAll('.blog-card');
+
+blogCards.forEach(card => {
+  card.addEventListener('click', () => {
+    const category = card.dataset.category;
+    addNotification(`📚 ${category} - Check out my latest insights on this topic!`);
+  });
+  
+  // Add hover effects for blog particles
+  card.addEventListener('mouseenter', () => {
+    const particles = card.querySelectorAll('.blog-particles span');
+    particles.forEach((particle, index) => {
+      particle.style.animationDuration = '2s';
+      particle.style.animationDelay = `${index * 0.4}s`;
+    });
+  });
+  
+  card.addEventListener('mouseleave', () => {
+    const particles = card.querySelectorAll('.blog-particles span');
+    particles.forEach(particle => {
+      particle.style.animationDuration = '3s';
+      particle.style.animationDelay = '';
+    });
+  });
+});
+
+// Contact Items Interactions
+const contactItems = document.querySelectorAll('.contact-item');
+
+contactItems.forEach(item => {
+  item.addEventListener('click', () => {
+    const contactType = item.dataset.contact;
+    addNotification(`📞 ${contactType} - Let's connect and build the future together!`);
+  });
+  
+  // Add hover effects for contact particles
+  item.addEventListener('mouseenter', () => {
+    const particles = item.querySelectorAll('.contact-particles span');
+    particles.forEach((particle, index) => {
+      particle.style.animationDuration = '1.5s';
+      particle.style.animationDelay = `${index * 0.2}s`;
+    });
+  });
+  
+  item.addEventListener('mouseleave', () => {
+    const particles = item.querySelectorAll('.contact-particles span');
+    particles.forEach(particle => {
+      particle.style.animationDuration = '3s';
+      particle.style.animationDelay = '';
+    });
+  });
+});
+
+// Social Links Interactions
+const socialLinks = document.querySelectorAll('.social-link');
+
+socialLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const platform = link.dataset.platform;
+    addNotification(`🔗 ${platform} - Connect with me on ${platform}!`);
+  });
+  
+  // Add hover effects for social glow
+  link.addEventListener('mouseenter', () => {
+    const glow = link.querySelector('.social-glow');
+    glow.style.opacity = '1';
+    glow.style.transform = 'scale(1.2)';
+  });
+  
+  link.addEventListener('mouseleave', () => {
+    const glow = link.querySelector('.social-glow');
+    glow.style.opacity = '0';
+    glow.style.transform = 'scale(1)';
+  });
+});
+
+// Form Input Enhancements
+const formInputs = document.querySelectorAll('.form-group input, .form-group textarea');
+
+formInputs.forEach(input => {
+  input.addEventListener('focus', () => {
+    const glow = input.parentElement.querySelector('.input-glow');
+    glow.style.opacity = '1';
+    glow.style.transform = 'scale(1.05)';
+  });
+  
+  input.addEventListener('blur', () => {
+    const glow = input.parentElement.querySelector('.input-glow');
+    glow.style.opacity = '0';
+    glow.style.transform = 'scale(1)';
   });
 });
 

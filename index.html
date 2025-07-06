@@ -7,90 +7,92 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- AOS Animation Library -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
-  <!-- Swiper Carousel -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <body>
-  <!-- Scroll Progress Bar -->
   <div class="scroll-progress-bar"></div>
-  <!-- Animated Background -->
   <div class="animated-bg"></div>
 
   <!-- Navbar -->
-  <nav class="navbar glass-nav">
-    <div class="nav-content">
-      <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
-      <span class="logo gradient-text">Lynccaster</span>
-      <ul class="nav-links">
-        <li><a href="#home" class="nav-link">Home</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#skills" class="nav-link">Skills</a></li>
-        <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-      <button class="toggle-theme" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
-    </div>
-    <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
-      <ul>
-        <li><a href="#home" class="nav-link">Home</a></li>
-        <li><a href="#about" class="nav-link">About</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#skills" class="nav-link">Skills</a></li>
-        <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
+  <header>
+    <nav class="navbar glass-nav">
+      <div class="nav-content">
+        <span class="logo gradient-text">Lynccaster</span>
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <button class="toggle-theme" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+        <button class="hamburger" id="hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+      </div>
+      <div class="mobile-nav" id="mobile-nav" aria-hidden="true">
+        <ul>
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
   <main class="container">
-    <section id="home" class="hero" data-aos="fade-up">
-      <div class="hero-content">
-        <h1 class="gradient-text animated-text" id="hero-title">Lynccaster</h1>
-        <p class="subtitle animated-text" id="hero-sub">Creative Technologist & Digital Craftsman</p>
-        <p class="hero-desc animated-text" id="hero-desc">Inventing the future of digital experience.<br> Bridging code, design, and imagination.</p>
-        <div class="hero-socials">
-          <a href="mailto:lynccaster@example.com" title="Email"><i class="fas fa-envelope"></i></a>
-          <a href="https://github.com/lynccaster" title="GitHub"><i class="fab fa-github"></i></a>
-          <a href="https://linkedin.com/in/lynccaster" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <!-- HERO -->
+    <section id="home" class="hero fade-section" data-aos="fade-up">
+      <div class="hero-inner">
+        <div class="hero-main">
+          <h1 class="hero-title gradient-text animated-text" id="hero-title">Lynccaster</h1>
+          <h2 class="hero-role animated-text" id="hero-sub">Creative Technologist</h2>
+          <p class="hero-desc animated-text" id="hero-desc">Inventing the future of digital experience.<br>Bridging code, design, and imagination.</p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn primary">View Projects</a>
+            <a href="#contact" class="btn secondary">Get in Touch</a>
+          </div>
+          <div class="hero-socials">
+            <a href="mailto:lynccaster@example.com" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://github.com/lynccaster" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/lynccaster" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          </div>
         </div>
-        <div class="hero-buttons">
-          <a href="#projects" class="btn primary">View Projects</a>
-          <a href="#contact" class="btn secondary">Get in Touch</a>
+        <div class="hero-visual">
+          <svg width="260" height="260" viewBox="0 0 220 220" class="hero-svg-anim">
+            <defs>
+              <radialGradient id="globeGrad" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#fff" stop-opacity="0.8"/>
+                <stop offset="100%" stop-color="#6c5ce7" stop-opacity="0.2"/>
+              </radialGradient>
+            </defs>
+            <circle cx="110" cy="110" r="90" fill="url(#globeGrad)"/>
+            <g stroke="#8b5cf6" stroke-width="1.5" opacity="0.7">
+              <ellipse cx="110" cy="110" rx="80" ry="30"/>
+              <ellipse cx="110" cy="110" rx="60" ry="80" transform="rotate(30 110 110)"/>
+              <ellipse cx="110" cy="110" rx="60" ry="80" transform="rotate(-30 110 110)"/>
+            </g>
+            <g stroke="#00f2fe" stroke-width="1" opacity="0.5">
+              <ellipse cx="110" cy="110" rx="70" ry="20"/>
+              <ellipse cx="110" cy="110" rx="40" ry="90" transform="rotate(60 110 110)"/>
+            </g>
+          </svg>
         </div>
-      </div>
-      <div class="hero-visual">
-        <svg width="260" height="260" viewBox="0 0 220 220" class="hero-svg-anim">
-          <defs>
-            <radialGradient id="globeGrad" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#fff" stop-opacity="0.8"/>
-              <stop offset="100%" stop-color="#6c5ce7" stop-opacity="0.2"/>
-            </radialGradient>
-          </defs>
-          <circle cx="110" cy="110" r="90" fill="url(#globeGrad)"/>
-          <g stroke="#8b5cf6" stroke-width="1.5" opacity="0.7">
-            <ellipse cx="110" cy="110" rx="80" ry="30"/>
-            <ellipse cx="110" cy="110" rx="60" ry="80" transform="rotate(30 110 110)"/>
-            <ellipse cx="110" cy="110" rx="60" ry="80" transform="rotate(-30 110 110)"/>
-          </g>
-          <g stroke="#00f2fe" stroke-width="1" opacity="0.5">
-            <ellipse cx="110" cy="110" rx="70" ry="20"/>
-            <ellipse cx="110" cy="110" rx="40" ry="90" transform="rotate(60 110 110)"/>
-          </g>
-        </svg>
       </div>
     </section>
 
+    <!-- ABOUT -->
     <section id="about" class="glass-card fade-section" data-aos="fade-up">
-      <h2>About Me</h2>
       <div class="about-flex">
         <div class="about-avatar">
           <img src="https://avatars.githubusercontent.com/u/9919?v=4" alt="Lynccaster Avatar" loading="lazy" />
         </div>
-        <div class="about-desc">
-          <p>I'm a Creative Technologist who bridges the gap between design and development. I craft immersive digital experiences and transform complex ideas into elegant, interactive solutions. My approach combines technical expertise with creative innovation, ensuring every project is both functional and unforgettable.</p>
+        <div class="about-content">
+          <h2>About Me</h2>
+          <p class="about-desc">I'm a Creative Technologist who bridges the gap between design and development. I craft immersive digital experiences and transform complex ideas into elegant, interactive solutions. My approach combines technical expertise with creative innovation, ensuring every project is both functional and unforgettable.</p>
           <div class="about-stats">
             <div class="stat"><span class="stat-num" data-count="8">0</span><span class="stat-label">Years Exp.</span></div>
             <div class="stat"><span class="stat-num" data-count="50">0</span><span class="stat-label">Projects</span></div>
@@ -100,6 +102,7 @@
       </div>
     </section>
 
+    <!-- PROJECTS -->
     <section id="projects" class="fade-section" data-aos="fade-up">
       <h2>Featured Projects</h2>
       <div class="project-filters">
@@ -112,7 +115,6 @@
         <!-- Projects will be loaded dynamically via JavaScript -->
       </div>
     </section>
-    <!-- Project Modal Popup -->
     <div class="project-modal" id="project-modal" aria-hidden="true">
       <div class="modal-overlay" id="modal-overlay"></div>
       <div class="modal-content" role="dialog" aria-modal="true">
@@ -123,6 +125,7 @@
       </div>
     </div>
 
+    <!-- SKILLS -->
     <section id="skills" class="glass-card fade-section" data-aos="fade-up">
       <h2>Skills & Expertise</h2>
       <div class="skills-bars">
@@ -139,6 +142,7 @@
       </div>
     </section>
 
+    <!-- TESTIMONIALS -->
     <section id="testimonials" class="glass-card fade-section" data-aos="fade-up">
       <h2>Testimonials</h2>
       <div class="swiper testimonials-carousel" id="testimonials-carousel">
@@ -163,6 +167,7 @@
       </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact" class="glass-card fade-section" data-aos="fade-up">
       <h2>Contact</h2>
       <form class="contact-form" autocomplete="off">
@@ -193,11 +198,8 @@
     </footer>
   </main>
   <button class="scroll-top" aria-label="Scroll to top"><i class="fas fa-arrow-up"></i></button>
-  <!-- GSAP -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <!-- AOS -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <!-- Swiper -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="script.js"></script>
 </body>

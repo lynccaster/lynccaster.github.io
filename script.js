@@ -16,6 +16,8 @@
     localStorage.setItem('theme', newTheme);
 });
 
+
+
 // AI Assistant
 const aiToggle = document.getElementById('ai-toggle');
 const aiPanel = document.getElementById('ai-panel');
@@ -415,11 +417,34 @@ document.querySelectorAll('section').forEach(section => {
   sectionObserver.observe(section);
 });
 
+// Hero Card Flip Animation
+const heroCard = document.querySelector('.hero-card');
+if (heroCard) {
+  heroCard.addEventListener('click', () => {
+    // Prevent multiple clicks during animation
+    if (heroCard.classList.contains('flipping')) return;
+    
+    // Add flip animation class
+    heroCard.classList.add('flipping');
+    
+    // Show notification during flip
+    setTimeout(() => {
+      addNotification('🎯 Interactive Tech Showcase - Each technology represents my expertise areas!');
+    }, 400);
+    
+    // Remove flip class after animation completes
+    setTimeout(() => {
+      heroCard.classList.remove('flipping');
+    }, 800);
+  });
+}
+
 // Tech Item Interactions
 const techItems = document.querySelectorAll('.tech-item');
 
 techItems.forEach(item => {
-  item.addEventListener('click', () => {
+  item.addEventListener('click', (e) => {
+    e.stopPropagation(); // Prevent triggering hero card flip
     const tech = item.dataset.tech;
     addNotification(`🚀 ${tech} - This is one of my core specialties! Check out my projects to see it in action.`);
     

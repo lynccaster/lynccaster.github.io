@@ -1,112 +1,531 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Elegant IT Portfolio using Glassmorphism UI" />
+  <meta name="description" content="Shahzwann - IT Specialist & Cloud Enthusiast | Modern Portfolio" />
   <title>Shahzwann | IT Portfolio</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a2d9d5fc4c.js" crossorigin="anonymous"></script>
 </head>
 <body>
-  <header class="navbar glass">
-      <h1 class="logo">Shahzwann</h1>
-      <nav>
+  <!-- Theme Toggle -->
+  <div class="theme-toggle">
+    <button id="theme-toggle" aria-label="Toggle theme">
+      <i class="fas fa-sun"></i>
+      <i class="fas fa-moon"></i>
+    </button>
+  </div>
+
+  <!-- Navigation -->
+  <header class="navbar">
+    <div class="container">
+      <div class="logo">
+        <span class="logo-text">Shahzwann</span>
+        <div class="logo-dot"></div>
+      </div>
+      <nav class="nav-menu">
         <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#certifications">Certifications</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#blog" class="nav-link">Blog</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
       </nav>
-      <button id="theme-toggle" aria-label="Toggle light/dark mode">
-        <i class="fas fa-moon"></i>
-      </button>
+      <div class="mobile-menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
   </header>
 
-  <section class="hero glass">
-    <div class="content">
-      <h2>Hello, I'm Shahzwann</h2>
-      <p>IT Specialist | Cloud Enthusiast | Problem Solver</p>
-      <a href="#projects" class="btn">View My Work</a>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-background">
+      <div class="particles"></div>
     </div>
-  </section>
-
-  <section id="about" class="section glass">
-    <h3>About Me</h3>
-    <p>I'm an IT professional with a background in network administration, cloud computing, and automation. Passionate about technology and building impactful systems.</p>
-  </section>
-
-  <section id="skills" class="section glass">
-    <h3>Skills</h3>
-    <div class="grid">
-      <div class="skill">Linux</div>
-      <div class="skill">AWS</div>
-      <div class="skill">Docker</div>
-      <div class="skill">Python</div>
-      <div class="skill">Git</div>
-      <div class="skill">Networking</div>
-    </div>
-  </section>
-
-  <section id="projects" class="section glass">
-    <h3>Projects</h3>
-    <div class="grid">
-      <div class="project">
-        <h4>Home Lab Setup</h4>
-        <p>Virtualized home lab using Proxmox and pfSense.</p>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 class="hero-title">
+            <span class="greeting">Hello, I'm</span>
+            <span class="name">Shahzwann</span>
+          </h1>
+          <p class="hero-subtitle">
+            <span class="typewriter" data-text="IT Specialist,Cloud Enthusiast,Problem Solver,Automation Expert"></span>
+          </p>
+          <p class="hero-description">
+            Crafting digital solutions with modern technologies and cloud-native approaches
+          </p>
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">
+              <span>View Projects</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+              <span>Get In Touch</span>
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-card">
+            <div class="card-content">
+              <div class="tech-stack">
+                <div class="tech-item" data-tech="AWS">
+                  <i class="fab fa-aws"></i>
+                </div>
+                <div class="tech-item" data-tech="Docker">
+                  <i class="fab fa-docker"></i>
+                </div>
+                <div class="tech-item" data-tech="Python">
+                  <i class="fab fa-python"></i>
+                </div>
+                <div class="tech-item" data-tech="Linux">
+                  <i class="fab fa-linux"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="project">
-        <h4>Cloud Cost Optimizer</h4>
-        <p>Python script to optimize EC2 usage via scheduling.</p>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">About Me</h2>
+        <p class="section-subtitle">Passionate about technology and innovation</p>
+      </div>
+      <div class="about-content">
+        <div class="about-text">
+          <p class="about-description">
+            I'm an IT professional with a deep passion for network administration, cloud computing, and automation. 
+            With years of experience in building scalable systems and optimizing infrastructure, I specialize in 
+            creating efficient, secure, and cost-effective solutions.
+          </p>
+          <div class="about-stats">
+            <div class="stat">
+              <span class="stat-number">5+</span>
+              <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">50+</span>
+              <span class="stat-label">Projects Completed</span>
+            </div>
+            <div class="stat">
+              <span class="stat-number">10+</span>
+              <span class="stat-label">Technologies</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-image">
+          <div class="image-container">
+            <div class="image-placeholder">
+              <i class="fas fa-user"></i>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="certifications" class="section glass">
-    <h3>Certifications</h3>
-    <ul>
-      <li>CompTIA Network+</li>
-      <li>Microsoft Azure Fundamentals</li>
-      <li>Cisco CCNA</li>
-    </ul>
+  <!-- Experience Timeline -->
+  <section id="experience" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Experience</h2>
+        <p class="section-subtitle">My professional journey</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3>Senior IT Specialist</h3>
+              <span class="timeline-company">TechCorp Inc.</span>
+              <span class="timeline-date">2023 - Present</span>
+            </div>
+            <p>Leading infrastructure automation and cloud migration initiatives</p>
+            <div class="timeline-tags">
+              <span class="tag">AWS</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Python</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3>Network Administrator</h3>
+              <span class="timeline-company">NetSolutions</span>
+              <span class="timeline-date">2021 - 2023</span>
+            </div>
+            <p>Managed enterprise network infrastructure and security</p>
+            <div class="timeline-tags">
+              <span class="tag">Cisco</span>
+              <span class="tag">Linux</span>
+              <span class="tag">Security</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <h3>IT Support Specialist</h3>
+              <span class="timeline-company">StartUpXYZ</span>
+              <span class="timeline-date">2020 - 2021</span>
+            </div>
+            <p>Provided technical support and system administration</p>
+            <div class="timeline-tags">
+              <span class="tag">Support</span>
+              <span class="tag">Windows</span>
+              <span class="tag">Troubleshooting</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section id="contact" class="section glass">
-    <h3>Contact</h3>
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Your Message"></textarea>
-      <button type="submit">Send</button>
-    </form>
+  <!-- Skills Section -->
+  <section id="skills" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Skills & Expertise</h2>
+        <p class="section-subtitle">Technologies I work with</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Cloud & DevOps</h3>
+          <div class="skill-items">
+            <div class="skill-item" data-skill="AWS">
+              <div class="skill-icon"><i class="fab fa-aws"></i></div>
+              <div class="skill-info">
+                <span class="skill-name">AWS</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-level="90"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item" data-skill="Docker">
+              <div class="skill-icon"><i class="fab fa-docker"></i></div>
+              <div class="skill-info">
+                <span class="skill-name">Docker</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-level="85"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item" data-skill="Kubernetes">
+              <div class="skill-icon"><i class="fas fa-cube"></i></div>
+              <div class="skill-info">
+                <span class="skill-name">Kubernetes</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-level="75"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Programming</h3>
+          <div class="skill-items">
+            <div class="skill-item" data-skill="Python">
+              <div class="skill-icon"><i class="fab fa-python"></i></div>
+              <div class="skill-info">
+                <span class="skill-name">Python</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-level="88"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item" data-skill="Bash">
+              <div class="skill-icon"><i class="fas fa-terminal"></i></div>
+              <div class="skill-info">
+                <span class="skill-name">Bash</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-level="82"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item" data-skill="JavaScript">
+              <div class="skill-icon"><i class="fab fa-js"></i></div>
+              <div class="skill-info">
+                <span class="skill-name">JavaScript</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-level="70"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Infrastructure</h3>
+          <div class="skill-items">
+            <div class="skill-item" data-skill="Linux">
+              <div class="skill-icon"><i class="fab fa-linux"></i></div>
+              <div class="skill-info">
+                <span class="skill-name">Linux</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-level="92"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item" data-skill="Networking">
+              <div class="skill-icon"><i class="fas fa-network-wired"></i></div>
+              <div class="skill-info">
+                <span class="skill-name">Networking</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-level="85"></div>
+                </div>
+              </div>
+            </div>
+            <div class="skill-item" data-skill="Git">
+              <div class="skill-icon"><i class="fab fa-git-alt"></i></div>
+              <div class="skill-info">
+                <span class="skill-name">Git</span>
+                <div class="skill-bar">
+                  <div class="skill-progress" data-level="80"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <footer class="glass">
-    <p>© 2025 Shahzwann. All rights reserved.</p>
-    <div class="socials">
-      <a href="#"><i class="fab fa-github"></i></a>
-      <a href="#"><i class="fab fa-linkedin"></i></a>
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">Some of my recent work</p>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <div class="project-placeholder">
+              <i class="fas fa-server"></i>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>Home Lab Infrastructure</h3>
+            <p>Complete virtualization setup using Proxmox with pfSense firewall, automated backups, and monitoring</p>
+            <div class="project-tech">
+              <span class="tech-tag">Proxmox</span>
+              <span class="tech-tag">pfSense</span>
+              <span class="tech-tag">Docker</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <div class="project-placeholder">
+              <i class="fas fa-cloud"></i>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>Cloud Cost Optimizer</h3>
+            <p>Python automation script for AWS EC2 cost optimization through intelligent scheduling and resource management</p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">AWS</span>
+              <span class="tech-tag">Lambda</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+            <div class="project-placeholder">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>Network Security Monitor</h3>
+            <p>Real-time network monitoring system with intrusion detection and automated threat response</p>
+            <div class="project-tech">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Snort</span>
+              <span class="tech-tag">ELK Stack</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Section -->
+  <section id="blog" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Latest Articles</h2>
+        <p class="section-subtitle">Thoughts on technology and best practices</p>
+      </div>
+      <div class="blog-grid">
+        <article class="blog-card">
+          <div class="blog-meta">
+            <span class="blog-date">Dec 15, 2024</span>
+            <span class="blog-category">Cloud</span>
+          </div>
+          <h3>Optimizing AWS Costs: A Practical Guide</h3>
+          <p>Learn how to reduce your AWS bill by 40% using these proven strategies and automation techniques.</p>
+          <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+        </article>
+        <article class="blog-card">
+          <div class="blog-meta">
+            <span class="blog-date">Dec 10, 2024</span>
+            <span class="blog-category">DevOps</span>
+          </div>
+          <h3>Building a Home Lab: From Zero to Hero</h3>
+          <p>Step-by-step guide to setting up a professional-grade home lab for learning and experimentation.</p>
+          <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+        </article>
+        <article class="blog-card">
+          <div class="blog-meta">
+            <span class="blog-date">Dec 5, 2024</span>
+            <span class="blog-category">Security</span>
+          </div>
+          <h3>Network Security Best Practices for 2025</h3>
+          <p>Essential security measures every IT professional should implement in their infrastructure.</p>
+          <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Get In Touch</h2>
+        <p class="section-subtitle">Let's work together on your next project</p>
+      </div>
+      <div class="contact-content">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-details">
+              <h4>Email</h4>
+              <p>shahzwann@example.com</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="contact-details">
+              <h4>Location</h4>
+              <p>Remote / Worldwide</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="contact-details">
+              <h4>Availability</h4>
+              <p>Open to new opportunities</p>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form">
+          <div class="form-group">
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+            <label for="name">Your Name</label>
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+            <label for="email">Your Email</label>
+          </div>
+          <div class="form-group">
+            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+            <label for="subject">Subject</label>
+          </div>
+          <div class="form-group">
+            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+            <label for="message">Your Message</label>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            <span>Send Message</span>
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <span>Shahzwann</span>
+          </div>
+          <p>Building the future, one line of code at a time.</p>
+        </div>
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Connect</h4>
+          <div class="social-links">
+            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Shahzwann. All rights reserved.</p>
+        <p>Built with ❤️ and modern web technologies</p>
+      </div>
     </div>
   </footer>
-  <script>
-    // Theme toggle logic
-    const toggleBtn = document.getElementById('theme-toggle');
-    const icon = toggleBtn.querySelector('i');
-    function setTheme(theme) {
-      document.documentElement.setAttribute('data-theme', theme);
-      localStorage.setItem('theme', theme);
-      icon.className = theme === 'dark' ? 'fas fa-moon' : 'fas fa-sun';
-    }
-    toggleBtn.addEventListener('click', () => {
-      const current = document.documentElement.getAttribute('data-theme') || 'dark';
-      setTheme(current === 'dark' ? 'light' : 'dark');
-    });
-    // On load
-    const saved = localStorage.getItem('theme');
-    setTheme(saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
-  </script>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
 </body>
 </html>

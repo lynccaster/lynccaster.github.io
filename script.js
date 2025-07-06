@@ -235,11 +235,20 @@ document.querySelectorAll('.nav-link').forEach(link => {
   });
 });
 
-// Active Navigation Highlight
+// Enhanced Navigation Scroll Effects
 window.addEventListener('scroll', () => {
+  const navbar = document.querySelector('.navbar');
   const sections = document.querySelectorAll('section[id]');
   const scrollPos = window.scrollY + 100;
   
+  // Add scrolled class to navbar
+  if (window.scrollY > 50) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+  
+  // Active Navigation Highlight
   sections.forEach(section => {
     const sectionTop = section.offsetTop;
     const sectionHeight = section.offsetHeight;
@@ -254,7 +263,7 @@ window.addEventListener('scroll', () => {
 });
 
 // Typewriter Effect
-const typewriterElement = document.querySelector('.typewriter');
+  const typewriterElement = document.querySelector('.typewriter');
 if (typewriterElement) {
   const texts = typewriterElement.dataset.text.split(',');
   let textIndex = 0;
@@ -381,6 +390,23 @@ if (mobileMenuToggle && navMenu) {
   mobileMenuToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
     mobileMenuToggle.classList.toggle('active');
+  });
+  
+  // Close mobile menu when clicking on navigation links
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('active');
+      mobileMenuToggle.classList.remove('active');
+    });
+  });
+  
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!navMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+      navMenu.classList.remove('active');
+      mobileMenuToggle.classList.remove('active');
+    }
   });
 }
 
@@ -648,11 +674,251 @@ formInputs.forEach(input => {
   });
 });
 
+// Quantum Particles Interaction System
+class QuantumParticleSystem {
+  constructor() {
+    this.particles = [];
+    this.mouse = { x: 0, y: 0 };
+    this.isMouseMoving = false;
+    this.mouseTimeout = null;
+    this.init();
+  }
+
+  init() {
+    this.createParticles();
+    this.bindEvents();
+    this.animate();
+  }
+
+  createParticles() {
+    // Create interactive particle elements
+    for (let i = 0; i < 50; i++) {
+      const particle = document.createElement('div');
+      particle.className = 'quantum-particle';
+      particle.style.cssText = `
+        position: fixed;
+        width: ${Math.random() * 4 + 1}px;
+        height: ${Math.random() * 4 + 1}px;
+        background: ${this.getRandomParticleColor()};
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: -2;
+        opacity: ${Math.random() * 0.6 + 0.2};
+        left: ${Math.random() * window.innerWidth}px;
+        top: ${Math.random() * window.innerHeight}px;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 10px currentColor;
+      `;
+      
+      this.particles.push({
+        element: particle,
+        x: parseFloat(particle.style.left),
+        y: parseFloat(particle.style.top),
+        vx: (Math.random() - 0.5) * 0.5,
+        vy: (Math.random() - 0.5) * 0.5,
+        size: parseFloat(particle.style.width),
+        originalSize: parseFloat(particle.style.width),
+        color: particle.style.background,
+        attraction: Math.random() * 0.3 + 0.1
+      });
+      
+      document.body.appendChild(particle);
+    }
+  }
+
+  getRandomParticleColor() {
+    const colors = [
+      `rgba(var(--primary-color-rgb), ${Math.random() * 0.8 + 0.2})`,
+      `rgba(var(--secondary-color-rgb), ${Math.random() * 0.8 + 0.2})`,
+      `rgba(var(--accent-color-rgb), ${Math.random() * 0.8 + 0.2})`
+    ];
+    return colors[Math.floor(Math.random() * colors.length)];
+  }
+
+  bindEvents() {
+    // Mouse movement tracking
+    document.addEventListener('mousemove', (e) => {
+      this.mouse.x = e.clientX;
+      this.mouse.y = e.clientY;
+      this.isMouseMoving = true;
+      
+      // Update CSS custom properties for cursor effect
+      document.documentElement.style.setProperty('--mouse-x', e.clientX + 'px');
+      document.documentElement.style.setProperty('--mouse-y', e.clientY + 'px');
+      document.body.classList.add('mouse-moving');
+      
+      // Clear previous timeout
+      if (this.mouseTimeout) {
+        clearTimeout(this.mouseTimeout);
+      }
+      
+      // Set timeout to stop mouse tracking after 2 seconds of no movement
+      this.mouseTimeout = setTimeout(() => {
+        this.isMouseMoving = false;
+        document.body.classList.remove('mouse-moving');
+      }, 2000);
+    });
+
+    // Touch events for mobile
+    document.addEventListener('touchmove', (e) => {
+      const touch = e.touches[0];
+      this.mouse.x = touch.clientX;
+      this.mouse.y = touch.clientY;
+      this.isMouseMoving = true;
+      
+      // Update CSS custom properties for cursor effect
+      document.documentElement.style.setProperty('--mouse-x', touch.clientX + 'px');
+      document.documentElement.style.setProperty('--mouse-y', touch.clientY + 'px');
+      document.body.classList.add('mouse-moving');
+      
+      if (this.mouseTimeout) {
+        clearTimeout(this.mouseTimeout);
+      }
+      
+      this.mouseTimeout = setTimeout(() => {
+        this.isMouseMoving = false;
+        document.body.classList.remove('mouse-moving');
+      }, 2000);
+    });
+
+    // Click effect - create particle burst
+    document.addEventListener('click', (e) => {
+      this.createParticleBurst(e.clientX, e.clientY);
+    });
+
+    // Touch click effect
+    document.addEventListener('touchend', (e) => {
+      const touch = e.changedTouches[0];
+      this.createParticleBurst(touch.clientX, touch.clientY);
+    });
+
+    // Window resize handling
+    window.addEventListener('resize', () => {
+      this.handleResize();
+    });
+  }
+
+  handleResize() {
+    this.particles.forEach(particle => {
+      if (particle.x > window.innerWidth) {
+        particle.x = window.innerWidth - 10;
+      }
+      if (particle.y > window.innerHeight) {
+        particle.y = window.innerHeight - 10;
+      }
+    });
+  }
+
+  createParticleBurst(x, y) {
+    // Create temporary burst particles
+    for (let i = 0; i < 8; i++) {
+      const burstParticle = document.createElement('div');
+      const angle = (i / 8) * Math.PI * 2;
+      const velocity = 3 + Math.random() * 2;
+      
+      burstParticle.style.cssText = `
+        position: fixed;
+        width: 3px;
+        height: 3px;
+        background: ${this.getRandomParticleColor()};
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: -1;
+        left: ${x}px;
+        top: ${y}px;
+        opacity: 1;
+        box-shadow: 0 0 10px currentColor;
+        transition: all 0.5s ease;
+      `;
+      
+      document.body.appendChild(burstParticle);
+      
+      // Animate burst
+      setTimeout(() => {
+        const finalX = x + Math.cos(angle) * velocity * 50;
+        const finalY = y + Math.sin(angle) * velocity * 50;
+        
+        burstParticle.style.left = finalX + 'px';
+        burstParticle.style.top = finalY + 'px';
+        burstParticle.style.opacity = '0';
+        burstParticle.style.transform = 'scale(0)';
+      }, 10);
+      
+      // Remove burst particle after animation
+      setTimeout(() => {
+        if (burstParticle.parentNode) {
+          burstParticle.remove();
+        }
+      }, 500);
+    }
+  }
+
+  animate() {
+    this.particles.forEach(particle => {
+      // Calculate distance from mouse
+      const dx = this.mouse.x - particle.x;
+      const dy = this.mouse.y - particle.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      
+      // Mouse attraction effect
+      if (this.isMouseMoving && distance < 150) {
+        const force = (150 - distance) / 150 * particle.attraction;
+        particle.vx += (dx / distance) * force * 0.1;
+        particle.vy += (dy / distance) * force * 0.1;
+        
+        // Scale up particles near mouse
+        const scale = 1 + (150 - distance) / 150 * 2;
+        particle.size = particle.originalSize * scale;
+        particle.element.style.transform = `scale(${scale})`;
+        particle.element.style.opacity = Math.min(1, 0.6 + (150 - distance) / 150 * 0.4);
+      } else {
+        // Return to normal size
+        particle.size = particle.originalSize;
+        particle.element.style.transform = 'scale(1)';
+        particle.element.style.opacity = 0.6;
+      }
+      
+      // Update position
+      particle.x += particle.vx;
+      particle.y += particle.vy;
+      
+      // Add some randomness
+      particle.vx += (Math.random() - 0.5) * 0.02;
+      particle.vy += (Math.random() - 0.5) * 0.02;
+      
+      // Dampen velocity
+      particle.vx *= 0.99;
+      particle.vy *= 0.99;
+      
+      // Boundary checking
+      if (particle.x < 0 || particle.x > window.innerWidth) {
+        particle.vx *= -0.8;
+        particle.x = Math.max(0, Math.min(window.innerWidth, particle.x));
+      }
+      if (particle.y < 0 || particle.y > window.innerHeight) {
+        particle.vy *= -0.8;
+        particle.y = Math.max(0, Math.min(window.innerHeight, particle.y));
+      }
+      
+      // Update element position
+      particle.element.style.left = particle.x + 'px';
+      particle.element.style.top = particle.y + 'px';
+      particle.element.style.width = particle.size + 'px';
+      particle.element.style.height = particle.size + 'px';
+    });
+    
+    requestAnimationFrame(() => this.animate());
+  }
+}
+
 // Initialize
 document.addEventListener('DOMContentLoaded', () => {
   // Set initial active nav link
   const homeLink = document.querySelector('.nav-link[href="#home"]');
   if (homeLink) homeLink.classList.add('active');
+  
+  // Initialize quantum particle system
+  new QuantumParticleSystem();
   
   // Add welcome message
   setTimeout(() => {

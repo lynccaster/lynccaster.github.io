@@ -300,63 +300,122 @@ function showNotification(message, type = 'info') {
   }, 5000);
 }
 
-// ===== PARTICLE BACKGROUND =====
+// ===== LIQUID GLASSMORPHISM BACKGROUND =====
 function initializeParticles() {
   const particlesContainer = document.querySelector('.particles');
   if (!particlesContainer) return;
   
-  // Create floating particles
-  for (let i = 0; i < 20; i++) {
-    createParticle(particlesContainer);
-  }
+  // Interactive liquid effects
+  particlesContainer.addEventListener('mousemove', (e) => {
+    const rect = particlesContainer.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width;
+    const y = (e.clientY - rect.top) / rect.height;
+    
+    // Move liquid orbs based on mouse position with enhanced effects
+    const orbs = particlesContainer.querySelectorAll('.liquid-orb');
+    orbs.forEach((orb, index) => {
+      const speed = (index + 1) * 0.015;
+      const moveX = (x - 0.5) * 60 * speed;
+      const moveY = (y - 0.5) * 60 * speed;
+      
+      orb.style.transform += ` translate(${moveX}px, ${moveY}px)`;
+      
+      // Add subtle rotation based on mouse position
+      const rotation = (x - 0.5) * 10;
+      orb.style.transform += ` rotate(${rotation}deg)`;
+    });
+    
+    // Move liquid shapes with organic motion
+    const shapes = particlesContainer.querySelectorAll('.liquid-shape');
+    shapes.forEach((shape, index) => {
+      const speed = (index + 1) * 0.01;
+      const moveX = (x - 0.5) * 40 * speed;
+      const moveY = (y - 0.5) * 40 * speed;
+      
+      shape.style.transform += ` translate(${moveX}px, ${moveY}px)`;
+    });
+    
+    // Enhanced ripple effect to glass particles
+    const particles = particlesContainer.querySelectorAll('.glass-particle');
+    particles.forEach((particle, index) => {
+      const distance = Math.sqrt(
+        Math.pow(x - parseFloat(particle.style.left || 0.5), 2) +
+        Math.pow(y - parseFloat(particle.style.top || 0.5), 2)
+      );
+      
+      if (distance < 0.25) {
+        const scale = 2 + (1 - distance) * 2;
+        particle.style.transform = `scale(${scale})`;
+        particle.style.opacity = '1';
+        
+        // Add glow effect
+        const theme = document.documentElement.getAttribute('data-theme');
+        if (theme === 'light') {
+          particle.style.boxShadow = `0 0 25px rgba(var(--primary-color-rgb), 0.8)`;
+        } else {
+          particle.style.boxShadow = `0 0 30px rgba(255, 255, 255, 0.6)`;
+        }
+        
+        setTimeout(() => {
+          particle.style.transform = 'scale(1)';
+          particle.style.opacity = theme === 'light' ? '0.4' : '0.4';
+          particle.style.boxShadow = '';
+        }, 800);
+      }
+    });
+  });
+  
+  // Add liquid wave effect on scroll with more dynamic movement
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const shapes = particlesContainer.querySelectorAll('.liquid-shape');
+    const orbs = particlesContainer.querySelectorAll('.liquid-orb');
+    
+    shapes.forEach((shape, index) => {
+      const waveY = Math.sin(scrollY * 0.001 + index * 0.5) * 15;
+      const waveX = Math.cos(scrollY * 0.0008 + index * 0.3) * 8;
+      const scale = 1 + Math.sin(scrollY * 0.002 + index) * 0.05;
+      shape.style.transform += ` translate(${waveX}px, ${waveY}px) scale(${scale})`;
+    });
+    
+    orbs.forEach((orb, index) => {
+      const waveY = Math.sin(scrollY * 0.0006 + index * 0.4) * 12;
+      const waveX = Math.cos(scrollY * 0.001 + index * 0.6) * 6;
+      orb.style.transform += ` translate(${waveX}px, ${waveY}px)`;
+    });
+  });
+  
+  // Add subtle random movement for more organic feel
+  setInterval(() => {
+    const elements = particlesContainer.querySelectorAll('.liquid-orb, .liquid-shape');
+    elements.forEach((element, index) => {
+      const randomX = (Math.random() - 0.5) * 4;
+      const randomY = (Math.random() - 0.5) * 4;
+      const randomScale = 1 + (Math.random() - 0.5) * 0.02;
+      
+      element.style.transform += ` translate(${randomX}px, ${randomY}px) scale(${randomScale})`;
+    });
+  }, 3000);
 }
 
-function createParticle(container) {
-  const particle = document.createElement('div');
-  particle.className = 'floating-particle';
-  
-  const size = Math.random() * 4 + 2;
-  const x = Math.random() * 100;
-  const y = Math.random() * 100;
-  const duration = Math.random() * 20 + 10;
-  const delay = Math.random() * 5;
-  
-  particle.style.cssText = `
-    position: absolute;
-    width: ${size}px;
-    height: ${size}px;
-    background: var(--primary-color);
-    border-radius: 50%;
-    opacity: 0.3;
-    left: ${x}%;
-    top: ${y}%;
-    animation: float-particle ${duration}s ease-in-out infinite;
-    animation-delay: ${delay}s;
-  `;
-  
-  container.appendChild(particle);
-}
-
-// Add floating particle animation
+// Liquid Glassmorphism styles
 const style = document.createElement('style');
 style.textContent = `
-  @keyframes float-particle {
-    0%, 100% {
-      transform: translateY(0px) translateX(0px);
-      opacity: 0.3;
-    }
-    25% {
-      transform: translateY(-20px) translateX(10px);
-      opacity: 0.6;
-    }
-    50% {
-      transform: translateY(-10px) translateX(-10px);
-      opacity: 0.4;
-    }
-    75% {
-      transform: translateY(-30px) translateX(5px);
-      opacity: 0.7;
-    }
+  .particles {
+    transition: all 0.3s ease;
+  }
+  
+  .liquid-orb, .liquid-shape, .glass-particle {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .particles:hover .liquid-orb {
+    filter: brightness(1.2) contrast(1.1);
+  }
+  
+  .glass-particle:hover {
+    transform: scale(3) !important;
+    opacity: 1 !important;
   }
   
   .section.animate-in {

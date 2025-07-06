@@ -1,82 +1,239 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <!--=============== FAVICON ===============-->
-        <link rel="shortcut icon" href="" type="image/x-icon">
-
-        <!--=============== BOXICONS ===============-->
-        
-
-        <!--=============== SWIPER CSS ===============-->
-        <link rel="stylesheet" href="">
-
-        <!--=============== CSS ===============-->
-        <link rel="stylesheet" href="">
-
-        <title> Responsive portfolio website Ansel </title>
-    </head>
-    <body>
-        <!--=============== HEADER ===============-->
-        <header class="header" id="header">
-            
-        </header>
-
-        <!--=============== MAIN ===============-->
-        <main class="main">
-            <!--=============== HOME ===============-->
-            <section class="home section" id="home">
-                
-            </section>
-            
-            <!--=============== ABOUT ===============-->
-            <section class="about section" id="about">
-                
-            </section>
-
-            <!--=============== SKILLS ===============-->
-            <section class="skills section" id="skills">
-                
-            </section>
-
-            <!--=============== SERVICES ===============-->
-            <section class="services section">
-                
-            </section>
-
-            <!--=============== WORK ===============-->
-            <section class="work section" id="work">
-                
-            </section>
-
-            <!--=============== TESTIMONIALS ===============-->
-            <section class="testimonial section">
-                
-            </section>
-
-            <!--=============== CONTACT ===============-->
-            <section class="contact section" id="contact">
-                
-            </section>
-        </main>
-
-        <!--=============== FOOTER ===============-->
-        <footer class="footer">
-            
-        </footer>
-
-        <!--=============== SCROLLREVEAL ===============-->
-        <script src=""></script>
-
-        <!--=============== SWIPER JS ===============-->
-        <script src=""></script>
-
-        <!--=============== MIXITUP FILTER ===============-->
-        <script src=""></script>
-
-        <!--=============== MAIN JS ===============-->
-        <script src=""></script>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--=============== FAVICON ===============-->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!--=============== BOXICONS ===============-->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <!--=============== SWIPER CSS ===============-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="style.css">
+    <title>Lynccaster | Creative Technologist</title>
+</head>
+<body>
+    <!--=============== HEADER ===============-->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#home" class="nav__logo">Lynccaster</a>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link active-link">Home</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                    <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
+                    <li class="nav__item"><a href="#services" class="nav__link">Services</a></li>
+                    <li class="nav__item"><a href="#work" class="nav__link">Work</a></li>
+                    <li class="nav__item"><a href="#testimonial" class="nav__link">Testimonials</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                </ul>
+                <i class='bx bx-x nav__close' id="nav-close"></i>
+            </div>
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bx-menu'></i>
+            </div>
+        </nav>
+    </header>
+    <!--=============== MAIN ===============-->
+    <main class="main">
+        <!--=============== HOME ===============-->
+        <section class="home section" id="home">
+            <div class="home__container container grid">
+                <div class="home__content">
+                    <h1 class="home__title">Hi, I'm <span>Lynccaster</span></h1>
+                    <h3 class="home__subtitle">Creative Technologist</h3>
+                    <p class="home__description">Fusing creativity and technology to build futuristic digital experiences. I blend code, design, and innovation to craft immersive, elegant, and impactful digital products.</p>
+                    <div class="home__social">
+                        <a href="mailto:lynccaster@email.com" class="home__social-icon" aria-label="Email"><i class='bx bx-envelope'></i></a>
+                        <a href="https://github.com/lynccaster" class="home__social-icon" target="_blank" aria-label="GitHub"><i class='bx bxl-github'></i></a>
+                        <a href="https://linkedin.com/in/lynccaster" class="home__social-icon" target="_blank" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
+                    </div>
+                    <a href="#contact" class="button button--flex">Contact Me <i class='bx bx-send'></i></a>
+                </div>
+                <div class="home__img">
+                    <img src="https://avatars.githubusercontent.com/u/1?v=4" alt="Lynccaster Avatar" class="home__avatar">
+                </div>
+            </div>
+        </section>
+        <!--=============== ABOUT ===============-->
+        <section class="about section" id="about">
+            <h2 class="section__title">About Me</h2>
+            <span class="section__subtitle">My Introduction</span>
+            <div class="about__container container grid">
+                <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?auto=format&fit=facearea&w=400&h=400" alt="About" class="about__img">
+                <div class="about__data">
+                    <p class="about__description">I am passionate about exploring the intersection of art and technology, always pushing boundaries to create the extraordinary. With experience in creative coding, 3D web, and UI/UX, I deliver innovative solutions for modern brands and startups.</p>
+                    <div class="about__info">
+                        <div><span class="about__info-title">5+</span><span class="about__info-name">Years<br>experience</span></div>
+                        <div><span class="about__info-title">20+</span><span class="about__info-name">Completed<br>projects</span></div>
+                        <div><span class="about__info-title">10+</span><span class="about__info-name">Happy<br>clients</span></div>
+                    </div>
+                    <a href="#work" class="button button--flex">View Portfolio <i class='bx bx-briefcase'></i></a>
+                </div>
+            </div>
+        </section>
+        <!--=============== SKILLS ===============-->
+        <section class="skills section" id="skills">
+            <h2 class="section__title">Skills</h2>
+            <span class="section__subtitle">My Technical Level</span>
+            <div class="skills__container container grid">
+                <div class="skills__content skills__open">
+                    <div class="skills__header">
+                        <i class='bx bx-code-curly skills__icon'></i>
+                        <div>
+                            <h1 class="skills__title">Frontend</h1>
+                            <span class="skills__subtitle">More than 5 years</span>
+                        </div>
+                    </div>
+                    <div class="skills__list grid">
+                        <div class="skills__data"><span class="skills__name">JavaScript</span></div>
+                        <div class="skills__data"><span class="skills__name">TypeScript</span></div>
+                        <div class="skills__data"><span class="skills__name">React</span></div>
+                        <div class="skills__data"><span class="skills__name">Three.js</span></div>
+                        <div class="skills__data"><span class="skills__name">WebGL</span></div>
+                        <div class="skills__data"><span class="skills__name">CSS</span></div>
+                        <div class="skills__data"><span class="skills__name">Figma</span></div>
+                    </div>
+                </div>
+                <div class="skills__content">
+                    <div class="skills__header">
+                        <i class='bx bx-brain skills__icon'></i>
+                        <div>
+                            <h1 class="skills__title">Creative & AI</h1>
+                            <span class="skills__subtitle">3+ years</span>
+                        </div>
+                    </div>
+                    <div class="skills__list grid">
+                        <div class="skills__data"><span class="skills__name">AI/ML</span></div>
+                        <div class="skills__data"><span class="skills__name">Creative Coding</span></div>
+                        <div class="skills__data"><span class="skills__name">Python</span></div>
+                        <div class="skills__data"><span class="skills__name">Generative Art</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--=============== SERVICES ===============-->
+        <section class="services section" id="services">
+            <h2 class="section__title">Services</h2>
+            <span class="section__subtitle">What I Offer</span>
+            <div class="services__container container grid">
+                <div class="services__content">
+                    <i class='bx bx-palette services__icon'></i>
+                    <h3 class="services__title">UI/UX Design</h3>
+                    <p class="services__description">Modern, user-centered interfaces for web and mobile, blending aesthetics and usability.</p>
+                </div>
+                <div class="services__content">
+                    <i class='bx bx-code-block services__icon'></i>
+                    <h3 class="services__title">Web Development</h3>
+                    <p class="services__description">Responsive, performant websites and web apps using the latest technologies.</p>
+                </div>
+                <div class="services__content">
+                    <i class='bx bx-bot services__icon'></i>
+                    <h3 class="services__title">AI & Creative Tech</h3>
+                    <p class="services__description">Generative art, creative coding, and AI-powered digital experiences.</p>
+                </div>
+            </div>
+        </section>
+        <!--=============== WORK ===============-->
+        <section class="work section" id="work">
+            <h2 class="section__title">Portfolio</h2>
+            <span class="section__subtitle">Recent Projects</span>
+            <div class="work__container container swiper">
+                <div class="swiper-wrapper">
+                    <div class="work__card swiper-slide">
+                        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80" alt="Neon Portfolio" class="work__img">
+                        <h3 class="work__title">Neon Portfolio</h3>
+                        <span class="work__subtitle">HTML, CSS, 3D</span>
+                        <a href="#" class="work__button">View <i class='bx bx-right-arrow-alt work__icon'></i></a>
+                    </div>
+                    <div class="work__card swiper-slide">
+                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="AI Art Generator" class="work__img">
+                        <h3 class="work__title">AI Art Generator</h3>
+                        <span class="work__subtitle">AI, Python, Web App</span>
+                        <a href="#" class="work__button">View <i class='bx bx-right-arrow-alt work__icon'></i></a>
+                    </div>
+                    <div class="work__card swiper-slide">
+                        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80" alt="Code Synth" class="work__img">
+                        <h3 class="work__title">Code Synth</h3>
+                        <span class="work__subtitle">Live Coding, Music</span>
+                        <a href="#" class="work__button">View <i class='bx bx-right-arrow-alt work__icon'></i></a>
+                    </div>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+        <!--=============== TESTIMONIALS ===============-->
+        <section class="testimonial section" id="testimonial">
+            <h2 class="section__title">Testimonials</h2>
+            <span class="section__subtitle">What Clients Say</span>
+            <div class="testimonial__container container swiper">
+                <div class="swiper-wrapper">
+                    <div class="testimonial__card swiper-slide">
+                        <p class="testimonial__description">“Lynccaster is a rare blend of creative and technical. Our project exceeded expectations!”</p>
+                        <h3 class="testimonial__name">Alex R.</h3>
+                        <span class="testimonial__role">Product Manager, NeonTech</span>
+                    </div>
+                    <div class="testimonial__card swiper-slide">
+                        <p class="testimonial__description">“A visionary developer and designer. Highly recommended for any digital project.”</p>
+                        <h3 class="testimonial__name">Jamie L.</h3>
+                        <span class="testimonial__role">CEO, Artify</span>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+        <!--=============== CONTACT ===============-->
+        <section class="contact section" id="contact">
+            <h2 class="section__title">Contact Me</h2>
+            <span class="section__subtitle">Get in Touch</span>
+            <div class="contact__container container grid">
+                <div>
+                    <div class="contact__info">
+                        <i class='bx bx-envelope contact__icon'></i>
+                        <span class="contact__info-title">Email</span>
+                        <span class="contact__info-desc">lynccaster@email.com</span>
+                    </div>
+                    <div class="contact__info">
+                        <i class='bx bxl-linkedin contact__icon'></i>
+                        <span class="contact__info-title">LinkedIn</span>
+                        <span class="contact__info-desc">linkedin.com/in/lynccaster</span>
+                    </div>
+                </div>
+                <form class="contact__form" action="https://formspree.io/f/your-form-id" method="POST">
+                    <div class="contact__inputs">
+                        <input type="text" name="name" placeholder="Your Name" class="contact__input" required>
+                        <input type="email" name="email" placeholder="Your Email" class="contact__input" required>
+                    </div>
+                    <textarea name="message" placeholder="Your Message" class="contact__input" required></textarea>
+                    <button type="submit" class="button button--flex">Send <i class='bx bx-send'></i></button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <!--=============== FOOTER ===============-->
+    <footer class="footer">
+        <div class="footer__container container">
+            <h1 class="footer__title">Lynccaster</h1>
+            <ul class="footer__list">
+                <li><a href="#home" class="footer__link">Home</a></li>
+                <li><a href="#about" class="footer__link">About</a></li>
+                <li><a href="#work" class="footer__link">Portfolio</a></li>
+                <li><a href="#contact" class="footer__link">Contact</a></li>
+            </ul>
+            <div class="footer__social">
+                <a href="https://github.com/lynccaster" class="footer__social-link" target="_blank"><i class='bx bxl-github'></i></a>
+                <a href="https://linkedin.com/in/lynccaster" class="footer__social-link" target="_blank"><i class='bx bxl-linkedin'></i></a>
+            </div>
+            <span class="footer__copy">&copy; 2025 Lynccaster. Crafted with <i class='bx bxs-heart'></i> & futuristic code.</span>
+        </div>
+    </footer>
+    <!--=============== SCROLLREVEAL ===============-->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <!--=============== SWIPER JS ===============-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <!--=============== MAIN JS ===============-->
+    <script src="script.js"></script>
+</body>
 </html>

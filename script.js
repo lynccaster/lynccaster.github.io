@@ -674,7 +674,7 @@ formInputs.forEach(input => {
   });
 });
 
-// Static Quantum Particles System (Performance Optimized)
+// Dynamic Quantum Particles System (Performance Optimized)
 class QuantumParticleSystem {
   constructor() {
     this.particles = [];
@@ -684,39 +684,49 @@ class QuantumParticleSystem {
   init() {
     this.createParticles();
     this.bindEvents();
+    this.startFloatingAnimation();
   }
 
   createParticles() {
-    // Create static particle elements (reduced count for better performance)
-    const particleCount = window.innerWidth < 768 ? 15 : 25; // Fewer particles on mobile
+    // Create dynamic particle elements with better visibility
+    const particleCount = window.innerWidth < 768 ? 20 : 35; // More particles for better effect
     
     for (let i = 0; i < particleCount; i++) {
       const particle = document.createElement('div');
       particle.className = 'quantum-particle';
+      
+      // Dynamic size range (1px to 6px)
+      const size = Math.random() * 5 + 1;
+      const opacity = Math.random() * 0.8 + 0.2; // Higher opacity for better visibility
+      
       particle.style.cssText = `
         position: fixed;
-        width: ${Math.random() * 3 + 1}px;
-        height: ${Math.random() * 3 + 1}px;
+        width: ${size}px;
+        height: ${size}px;
         background: ${this.getRandomParticleColor()};
         border-radius: 50%;
         pointer-events: none;
         z-index: -2;
-        opacity: ${Math.random() * 0.4 + 0.1};
+        opacity: ${opacity};
         left: ${Math.random() * window.innerWidth}px;
         top: ${Math.random() * window.innerHeight}px;
-        box-shadow: 0 0 8px currentColor;
+        box-shadow: 0 0 ${size * 2}px currentColor;
         will-change: transform;
         transform: translateZ(0);
+        animation: particle-float ${3 + Math.random() * 4}s ease-in-out infinite;
+        animation-delay: ${Math.random() * 2}s;
       `;
       
       this.particles.push({
         element: particle,
         x: parseFloat(particle.style.left),
         y: parseFloat(particle.style.top),
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
-        size: parseFloat(particle.style.width),
-        originalSize: parseFloat(particle.style.width)
+        vx: (Math.random() - 0.5) * 0.5,
+        vy: (Math.random() - 0.5) * 0.5,
+        size: size,
+        originalSize: size,
+        floatSpeed: 3 + Math.random() * 4,
+        floatDelay: Math.random() * 2
       });
       
       document.body.appendChild(particle);
@@ -724,16 +734,32 @@ class QuantumParticleSystem {
   }
 
   getRandomParticleColor() {
-    const colors = [
-      `rgba(var(--primary-color-rgb), ${Math.random() * 0.6 + 0.1})`,
-      `rgba(var(--secondary-color-rgb), ${Math.random() * 0.6 + 0.1})`,
-      `rgba(var(--accent-color-rgb), ${Math.random() * 0.6 + 0.1})`
-    ];
-    return colors[Math.floor(Math.random() * colors.length)];
+    const isDarkMode = document.documentElement.getAttribute('data-theme') === 'dark';
+    
+    if (isDarkMode) {
+      // Dark mode colors (existing)
+      const colors = [
+        `rgba(var(--primary-color-rgb), ${Math.random() * 0.8 + 0.2})`,
+        `rgba(var(--secondary-color-rgb), ${Math.random() * 0.8 + 0.2})`,
+        `rgba(var(--accent-color-rgb), ${Math.random() * 0.8 + 0.2})`
+      ];
+      return colors[Math.floor(Math.random() * colors.length)];
+    } else {
+      // Light mode colors (more vibrant for better visibility)
+      const lightColors = [
+        `rgba(99, 102, 241, ${Math.random() * 0.9 + 0.3})`, // Indigo
+        `rgba(16, 185, 129, ${Math.random() * 0.9 + 0.3})`, // Emerald
+        `rgba(245, 158, 11, ${Math.random() * 0.9 + 0.3})`, // Amber
+        `rgba(239, 68, 68, ${Math.random() * 0.9 + 0.3})`, // Red
+        `rgba(168, 85, 247, ${Math.random() * 0.9 + 0.3})`, // Purple
+        `rgba(14, 165, 233, ${Math.random() * 0.9 + 0.3})`  // Sky
+      ];
+      return lightColors[Math.floor(Math.random() * lightColors.length)];
+    }
   }
 
   bindEvents() {
-    // Click effect - create particle burst (simplified)
+    // Click effect - create particle burst (enhanced)
     document.addEventListener('click', (e) => {
       this.createParticleBurst(e.clientX, e.clientY);
     });
@@ -747,6 +773,22 @@ class QuantumParticleSystem {
     // Window resize handling
     window.addEventListener('resize', () => {
       this.handleResize();
+    });
+    
+    // Theme change handling
+    const observer = new MutationObserver(() => {
+      this.updateParticleColors();
+    });
+    
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme']
+    });
+  }
+
+  updateParticleColors() {
+    this.particles.forEach(particle => {
+      particle.element.style.background = this.getRandomParticleColor();
     });
   }
 
@@ -764,16 +806,17 @@ class QuantumParticleSystem {
   }
 
   createParticleBurst(x, y) {
-    // Create temporary burst particles (reduced count)
-    for (let i = 0; i < 4; i++) {
+    // Create enhanced burst particles
+    for (let i = 0; i < 6; i++) {
       const burstParticle = document.createElement('div');
-      const angle = (i / 4) * Math.PI * 2;
-      const velocity = 2 + Math.random() * 1;
+      const angle = (i / 6) * Math.PI * 2;
+      const velocity = 3 + Math.random() * 2;
+      const size = Math.random() * 4 + 2;
       
       burstParticle.style.cssText = `
         position: fixed;
-        width: 2px;
-        height: 2px;
+        width: ${size}px;
+        height: ${size}px;
         background: ${this.getRandomParticleColor()};
         border-radius: 50%;
         pointer-events: none;
@@ -781,31 +824,72 @@ class QuantumParticleSystem {
         left: ${x}px;
         top: ${y}px;
         opacity: 1;
-        box-shadow: 0 0 6px currentColor;
-        transition: all 0.4s ease;
+        box-shadow: 0 0 ${size * 3}px currentColor;
+        transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         will-change: transform, opacity;
+        transform: scale(0);
       `;
       
       document.body.appendChild(burstParticle);
       
-      // Animate burst
+      // Animate burst with scale effect
       setTimeout(() => {
-        const finalX = x + Math.cos(angle) * velocity * 30;
-        const finalY = y + Math.sin(angle) * velocity * 30;
+        burstParticle.style.transform = 'scale(1)';
+      }, 10);
+      
+      setTimeout(() => {
+        const finalX = x + Math.cos(angle) * velocity * 40;
+        const finalY = y + Math.sin(angle) * velocity * 40;
         
         burstParticle.style.left = finalX + 'px';
         burstParticle.style.top = finalY + 'px';
         burstParticle.style.opacity = '0';
-        burstParticle.style.transform = 'scale(0)';
-      }, 10);
+        burstParticle.style.transform = 'scale(0) rotate(180deg)';
+      }, 100);
       
       // Remove burst particle after animation
       setTimeout(() => {
         if (burstParticle.parentNode) {
           burstParticle.remove();
         }
-      }, 400);
+      }, 600);
     }
+  }
+
+  startFloatingAnimation() {
+    // Add CSS animation for floating particles
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes particle-float {
+        0%, 100% {
+          transform: translateY(0px) translateX(0px) scale(1);
+        }
+        25% {
+          transform: translateY(-15px) translateX(10px) scale(1.1);
+        }
+        50% {
+          transform: translateY(-25px) translateX(-5px) scale(0.9);
+        }
+        75% {
+          transform: translateY(-10px) translateX(-15px) scale(1.05);
+        }
+      }
+      
+      @keyframes particle-glow {
+        0%, 100% {
+          box-shadow: 0 0 8px currentColor;
+        }
+        50% {
+          box-shadow: 0 0 20px currentColor, 0 0 30px currentColor;
+        }
+      }
+      
+      .quantum-particle {
+        animation: particle-float var(--float-duration, 4s) ease-in-out infinite,
+                   particle-glow 3s ease-in-out infinite;
+      }
+    `;
+    document.head.appendChild(style);
   }
 }
 

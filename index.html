@@ -131,54 +131,144 @@
           </div>
         </div>
         <div class="hero-visual">
-          <div class="hero-card">
-            <div class="card-content">
-              <div class="tech-grid">
-                <div class="tech-item" data-tech="AI/ML">
-                  <div class="tech-icon">
-                    <i class="fas fa-brain"></i>
-                  </div>
-                  <div class="tech-glow"></div>
-                  <div class="tech-particles">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </div>
-                </div>
-                <div class="tech-item" data-tech="Quantum">
-                  <div class="tech-icon">
-                    <i class="fas fa-atom"></i>
-                  </div>
-                  <div class="tech-glow"></div>
-                  <div class="tech-particles">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </div>
-                </div>
-                <div class="tech-item" data-tech="Blockchain">
-                  <div class="tech-icon">
-                    <i class="fas fa-link"></i>
-                  </div>
-                  <div class="tech-glow"></div>
-                  <div class="tech-particles">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </div>
-                </div>
-                <div class="tech-item" data-tech="AR/VR">
-                  <div class="tech-icon">
-                    <i class="fas fa-vr-cardboard"></i>
-                  </div>
-                  <div class="tech-glow"></div>
-                  <div class="tech-particles">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </div>
+          <div class="tech-orb-container">
+            <!-- Central 3D Orb -->
+            <div class="tech-orb" id="tech-orb">
+              <div class="orb-core">
+                <div class="orb-glow"></div>
+                <div class="orb-pulse"></div>
+                <div class="orb-rings">
+                  <div class="orb-ring ring-1"></div>
+                  <div class="orb-ring ring-2"></div>
+                  <div class="orb-ring ring-3"></div>
                 </div>
               </div>
+              
+              <!-- Orbiting Tech Skills -->
+              <div class="orbiting-tech" data-tech="AI/ML">
+                <div class="tech-node">
+                  <div class="node-icon">
+                    <i class="fas fa-brain"></i>
+                  </div>
+                  <div class="node-glow"></div>
+                  <div class="node-particles">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                  <div class="node-label">AI/ML</div>
+                </div>
+                <div class="orbit-path"></div>
+              </div>
+              
+              <div class="orbiting-tech" data-tech="Quantum">
+                <div class="tech-node">
+                  <div class="node-icon">
+                    <i class="fas fa-atom"></i>
+                  </div>
+                  <div class="node-glow"></div>
+                  <div class="node-particles">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                  <div class="node-label">Quantum</div>
+                </div>
+                <div class="orbit-path"></div>
+              </div>
+              
+              <div class="orbiting-tech" data-tech="Blockchain">
+                <div class="tech-node">
+                  <div class="node-icon">
+                    <i class="fas fa-link"></i>
+                  </div>
+                  <div class="node-glow"></div>
+                  <div class="node-particles">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                  <div class="node-label">Blockchain</div>
+                </div>
+                <div class="orbit-path"></div>
+              </div>
+              
+              <div class="orbiting-tech" data-tech="AR/VR">
+                <div class="tech-node">
+                  <div class="node-icon">
+                    <i class="fas fa-vr-cardboard"></i>
+                  </div>
+                  <div class="node-glow"></div>
+                  <div class="node-particles">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                  <div class="node-label">AR/VR</div>
+                </div>
+                <div class="orbit-path"></div>
+              </div>
+              
+              <div class="orbiting-tech" data-tech="IoT">
+                <div class="tech-node">
+                  <div class="node-icon">
+                    <i class="fas fa-microchip"></i>
+                  </div>
+                  <div class="node-glow"></div>
+                  <div class="node-particles">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                  <div class="node-label">IoT</div>
+                </div>
+                <div class="orbit-path"></div>
+              </div>
+              
+              <div class="orbiting-tech" data-tech="Cloud">
+                <div class="tech-node">
+                  <div class="node-icon">
+                    <i class="fas fa-cloud"></i>
+                  </div>
+                  <div class="node-glow"></div>
+                  <div class="node-particles">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                  <div class="node-label">Cloud</div>
+                </div>
+                <div class="orbit-path"></div>
+              </div>
+            </div>
+            
+            <!-- Connection Lines -->
+            <div class="connection-lines">
+              <svg class="connection-svg" viewBox="0 0 400 400">
+                <defs>
+                  <linearGradient id="connectionGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:rgba(255, 107, 107, 0.4);stop-opacity:1" />
+                    <stop offset="20%" style="stop-color:rgba(78, 205, 196, 0.5);stop-opacity:1" />
+                    <stop offset="40%" style="stop-color:rgba(69, 183, 209, 0.6);stop-opacity:1" />
+                    <stop offset="60%" style="stop-color:rgba(150, 206, 180, 0.5);stop-opacity:1" />
+                    <stop offset="80%" style="stop-color:rgba(255, 234, 167, 0.4);stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:rgba(221, 160, 221, 0.3);stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+                <path class="connection-line" d="M200,200 L200,200" stroke="url(#connectionGradient)" stroke-width="2" fill="none" opacity="0.6"/>
+              </svg>
+            </div>
+            
+            <!-- Floating Particles -->
+            <div class="orb-particles">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
             </div>
           </div>
         </div>

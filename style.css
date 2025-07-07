@@ -854,8 +854,678 @@ body::after {
   display: flex;
   justify-content: center;
   align-items: center;
+  perspective: 1000px;
 }
 
+/* ===== 3D TECH ORB ===== */
+.tech-orb-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.tech-orb {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: orb-float 6s ease-in-out infinite;
+}
+
+@keyframes orb-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Central Orb Core */
+.orb-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, 
+    #FF6B6B 0%,
+    #4ECDC4 25%,
+    #45B7D1 50%,
+    #96CEB4 75%,
+    #FFEAA7 100%);
+  box-shadow: 
+    0 0 60px rgba(255, 107, 107, 0.4),
+    0 0 40px rgba(78, 205, 196, 0.4),
+    0 0 30px rgba(69, 183, 209, 0.4),
+    inset 0 0 30px rgba(255, 255, 255, 0.2);
+  animation: orb-pulse 4s ease-in-out infinite;
+}
+
+@keyframes orb-pulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 
+      0 0 60px rgba(var(--primary-color-rgb), 0.6),
+      inset 0 0 30px rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+    box-shadow: 
+      0 0 80px rgba(var(--primary-color-rgb), 0.8),
+      inset 0 0 40px rgba(255, 255, 255, 0.2);
+  }
+}
+
+.orb-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, 
+    rgba(255, 107, 107, 0.3) 0%,
+    rgba(78, 205, 196, 0.2) 30%,
+    rgba(69, 183, 209, 0.2) 50%,
+    rgba(150, 206, 180, 0.1) 70%,
+    transparent 80%);
+  animation: orb-glow-pulse 3s ease-in-out infinite;
+}
+
+@keyframes orb-glow-pulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
+.orb-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  border: 2px solid rgba(var(--primary-color-rgb), 0.3);
+  border-radius: 50%;
+  animation: orb-ring-pulse 4s ease-in-out infinite;
+}
+
+@keyframes orb-ring-pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Orb Rings */
+.orb-rings {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+}
+
+.orb-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1px solid rgba(var(--primary-color-rgb), 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Colorful orb rings */
+.orb-ring.ring-1 {
+  border: 2px solid;
+  border-image: linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #96CEB4) 1;
+  animation: ring-rotate 20s linear infinite, ring-color-shift 8s ease-in-out infinite;
+}
+
+.orb-ring.ring-2 {
+  border: 2px solid;
+  border-image: linear-gradient(45deg, #4ECDC4, #45B7D1, #96CEB4, #FFEAA7) 1;
+  animation: ring-rotate 15s linear infinite reverse, ring-color-shift 6s ease-in-out infinite reverse;
+}
+
+.orb-ring.ring-3 {
+  border: 2px solid;
+  border-image: linear-gradient(45deg, #45B7D1, #96CEB4, #FFEAA7, #DDA0DD) 1;
+  animation: ring-rotate 25s linear infinite, ring-color-shift 10s ease-in-out infinite;
+}
+
+@keyframes ring-color-shift {
+  0%, 100% {
+    border-image: linear-gradient(45deg, #FF6B6B, #4ECDC4, #45B7D1, #96CEB4) 1;
+  }
+  25% {
+    border-image: linear-gradient(45deg, #4ECDC4, #45B7D1, #96CEB4, #FFEAA7) 1;
+  }
+  50% {
+    border-image: linear-gradient(45deg, #45B7D1, #96CEB4, #FFEAA7, #DDA0DD) 1;
+  }
+  75% {
+    border-image: linear-gradient(45deg, #96CEB4, #FFEAA7, #DDA0DD, #FF6B6B) 1;
+  }
+}
+
+.orb-ring.ring-1 {
+  width: 200px;
+  height: 200px;
+  animation: ring-rotate 20s linear infinite;
+}
+
+.orb-ring.ring-2 {
+  width: 280px;
+  height: 280px;
+  animation: ring-rotate 15s linear infinite reverse;
+}
+
+.orb-ring.ring-3 {
+  width: 360px;
+  height: 360px;
+  animation: ring-rotate 25s linear infinite;
+}
+
+@keyframes ring-rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+/* Orbiting Tech Nodes */
+.orbiting-tech {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+.orbiting-tech[data-tech="AI/ML"] {
+  animation: orbit-ai 12s linear infinite;
+}
+
+.orbiting-tech[data-tech="Quantum"] {
+  animation: orbit-quantum 15s linear infinite reverse;
+}
+
+.orbiting-tech[data-tech="Blockchain"] {
+  animation: orbit-blockchain 18s linear infinite;
+}
+
+.orbiting-tech[data-tech="AR/VR"] {
+  animation: orbit-arvr 14s linear infinite reverse;
+}
+
+.orbiting-tech[data-tech="IoT"] {
+  animation: orbit-iot 16s linear infinite;
+}
+
+.orbiting-tech[data-tech="Cloud"] {
+  animation: orbit-cloud 13s linear infinite reverse;
+}
+
+@keyframes orbit-ai {
+  from { transform: translate(-50%, -50%) rotate(0deg) translateX(160px) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg) translateX(160px) rotate(-360deg); }
+}
+
+@keyframes orbit-quantum {
+  from { transform: translate(-50%, -50%) rotate(60deg) translateX(160px) rotate(-60deg); }
+  to { transform: translate(-50%, -50%) rotate(-300deg) translateX(160px) rotate(300deg); }
+}
+
+@keyframes orbit-blockchain {
+  from { transform: translate(-50%, -50%) rotate(120deg) translateX(160px) rotate(-120deg); }
+  to { transform: translate(-50%, -50%) rotate(480deg) translateX(160px) rotate(-480deg); }
+}
+
+@keyframes orbit-arvr {
+  from { transform: translate(-50%, -50%) rotate(180deg) translateX(160px) rotate(-180deg); }
+  to { transform: translate(-50%, -50%) rotate(-180deg) translateX(160px) rotate(180deg); }
+}
+
+@keyframes orbit-iot {
+  from { transform: translate(-50%, -50%) rotate(240deg) translateX(160px) rotate(-240deg); }
+  to { transform: translate(-50%, -50%) rotate(600deg) translateX(160px) rotate(-600deg); }
+}
+
+@keyframes orbit-cloud {
+  from { transform: translate(-50%, -50%) rotate(300deg) translateX(160px) rotate(-300deg); }
+  to { transform: translate(-50%, -50%) rotate(-60deg) translateX(160px) rotate(60deg); }
+}
+
+/* Tech Nodes */
+.tech-node {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, 
+    rgba(var(--primary-color-rgb), 0.9) 0%,
+    rgba(var(--secondary-color-rgb), 0.7) 100%);
+  border: 2px solid rgba(var(--primary-color-rgb), 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+  box-shadow: 
+    0 0 20px rgba(var(--primary-color-rgb), 0.4),
+    inset 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Colorful Tech Nodes */
+.tech-node[data-tech="AI/ML"] {
+  background: linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 100%);
+  border-color: rgba(255, 107, 107, 0.5);
+  box-shadow: 
+    0 0 20px rgba(255, 107, 107, 0.6),
+    inset 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.tech-node[data-tech="Quantum"] {
+  background: linear-gradient(135deg, #4ECDC4 0%, #6EE7DF 100%);
+  border-color: rgba(78, 205, 196, 0.5);
+  box-shadow: 
+    0 0 20px rgba(78, 205, 196, 0.6),
+    inset 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.tech-node[data-tech="Blockchain"] {
+  background: linear-gradient(135deg, #45B7D1 0%, #6BC5DB 100%);
+  border-color: rgba(69, 183, 209, 0.5);
+  box-shadow: 
+    0 0 20px rgba(69, 183, 209, 0.6),
+    inset 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.tech-node[data-tech="AR/VR"] {
+  background: linear-gradient(135deg, #96CEB4 0%, #B8E6B8 100%);
+  border-color: rgba(150, 206, 180, 0.5);
+  box-shadow: 
+    0 0 20px rgba(150, 206, 180, 0.6),
+    inset 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.tech-node[data-tech="IoT"] {
+  background: linear-gradient(135deg, #FFEAA7 0%, #FFD93D 100%);
+  border-color: rgba(255, 234, 167, 0.5);
+  box-shadow: 
+    0 0 20px rgba(255, 234, 167, 0.6),
+    inset 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.tech-node[data-tech="Cloud"] {
+  background: linear-gradient(135deg, #DDA0DD 0%, #E6B3E6 100%);
+  border-color: rgba(221, 160, 221, 0.5);
+  box-shadow: 
+    0 0 20px rgba(221, 160, 221, 0.6),
+    inset 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.tech-node:hover {
+  transform: scale(1.2) translateZ(20px);
+  box-shadow: 
+    0 0 30px rgba(var(--primary-color-rgb), 0.8),
+    inset 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Colorful hover effects */
+.tech-node[data-tech="AI/ML"]:hover {
+  box-shadow: 
+    0 0 30px rgba(255, 107, 107, 0.9),
+    inset 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.tech-node[data-tech="Quantum"]:hover {
+  box-shadow: 
+    0 0 30px rgba(78, 205, 196, 0.9),
+    inset 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.tech-node[data-tech="Blockchain"]:hover {
+  box-shadow: 
+    0 0 30px rgba(69, 183, 209, 0.9),
+    inset 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.tech-node[data-tech="AR/VR"]:hover {
+  box-shadow: 
+    0 0 30px rgba(150, 206, 180, 0.9),
+    inset 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.tech-node[data-tech="IoT"]:hover {
+  box-shadow: 
+    0 0 30px rgba(255, 234, 167, 0.9),
+    inset 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.tech-node[data-tech="Cloud"]:hover {
+  box-shadow: 
+    0 0 30px rgba(221, 160, 221, 0.9),
+    inset 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.node-icon {
+  position: relative;
+  z-index: 2;
+  color: white;
+  font-size: 1.25rem;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+
+.node-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, 
+    rgba(var(--primary-color-rgb), 0.4) 0%,
+    transparent 70%);
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.tech-node:hover .node-glow {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.5);
+}
+
+.node-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.node-particles span {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(var(--primary-color-rgb), 0.8);
+  border-radius: 50%;
+  animation: node-particle-float 3s ease-in-out infinite;
+}
+
+/* Colorful particles for each tech */
+.tech-node[data-tech="AI/ML"] .node-particles span {
+  background: rgba(255, 107, 107, 0.8);
+}
+
+.tech-node[data-tech="Quantum"] .node-particles span {
+  background: rgba(78, 205, 196, 0.8);
+}
+
+.tech-node[data-tech="Blockchain"] .node-particles span {
+  background: rgba(69, 183, 209, 0.8);
+}
+
+.tech-node[data-tech="AR/VR"] .node-particles span {
+  background: rgba(150, 206, 180, 0.8);
+}
+
+.tech-node[data-tech="IoT"] .node-particles span {
+  background: rgba(255, 234, 167, 0.8);
+}
+
+.tech-node[data-tech="Cloud"] .node-particles span {
+  background: rgba(221, 160, 221, 0.8);
+}
+
+.node-particles span:nth-child(1) {
+  top: 20%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.node-particles span:nth-child(2) {
+  top: 60%;
+  right: 20%;
+  animation-delay: 1s;
+}
+
+.node-particles span:nth-child(3) {
+  bottom: 20%;
+  left: 50%;
+  animation-delay: 2s;
+}
+
+@keyframes node-particle-float {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-10px) scale(1.2);
+    opacity: 1;
+  }
+}
+
+.node-label {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(var(--primary-color-rgb), 0.9);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  opacity: 0;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Colorful node labels */
+.node-label[data-tech="AI/ML"] {
+  background: rgba(255, 107, 107, 0.9);
+  color: white;
+}
+
+.node-label[data-tech="Quantum"] {
+  background: rgba(78, 205, 196, 0.9);
+  color: white;
+}
+
+.node-label[data-tech="Blockchain"] {
+  background: rgba(69, 183, 209, 0.9);
+  color: white;
+}
+
+.node-label[data-tech="AR/VR"] {
+  background: rgba(150, 206, 180, 0.9);
+  color: white;
+}
+
+.node-label[data-tech="IoT"] {
+  background: rgba(255, 234, 167, 0.9);
+  color: #333;
+}
+
+.node-label[data-tech="Cloud"] {
+  background: rgba(221, 160, 221, 0.9);
+  color: white;
+}
+
+.tech-node:hover .node-label {
+  opacity: 1;
+  transform: translateX(-50%) translateY(5px);
+}
+
+/* Connection Lines */
+.connection-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.connection-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.connection-line {
+  stroke-dasharray: 5, 5;
+  animation: connection-dash 2s linear infinite;
+}
+
+@keyframes connection-dash {
+  to {
+    stroke-dashoffset: -10;
+  }
+}
+
+/* Floating Particles */
+.orb-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.orb-particles span {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgba(var(--primary-color-rgb), 0.6);
+  border-radius: 50%;
+  animation: orb-particle-float 8s ease-in-out infinite;
+}
+
+/* Colorful floating particles */
+.orb-particles span:nth-child(1) {
+  background: rgba(255, 107, 107, 0.8);
+}
+
+.orb-particles span:nth-child(2) {
+  background: rgba(78, 205, 196, 0.8);
+}
+
+.orb-particles span:nth-child(3) {
+  background: rgba(69, 183, 209, 0.8);
+}
+
+.orb-particles span:nth-child(4) {
+  background: rgba(150, 206, 180, 0.8);
+}
+
+.orb-particles span:nth-child(5) {
+  background: rgba(255, 234, 167, 0.8);
+}
+
+.orb-particles span:nth-child(6) {
+  background: rgba(221, 160, 221, 0.8);
+}
+
+.orb-particles span:nth-child(7) {
+  background: rgba(255, 107, 107, 0.6);
+}
+
+.orb-particles span:nth-child(8) {
+  background: rgba(78, 205, 196, 0.6);
+}
+
+.orb-particles span:nth-child(1) {
+  top: 10%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.orb-particles span:nth-child(2) {
+  top: 30%;
+  right: 15%;
+  animation-delay: 1s;
+}
+
+.orb-particles span:nth-child(3) {
+  bottom: 20%;
+  left: 10%;
+  animation-delay: 2s;
+}
+
+.orb-particles span:nth-child(4) {
+  top: 60%;
+  left: 80%;
+  animation-delay: 3s;
+}
+
+.orb-particles span:nth-child(5) {
+  bottom: 40%;
+  right: 20%;
+  animation-delay: 4s;
+}
+
+.orb-particles span:nth-child(6) {
+  top: 80%;
+  left: 50%;
+  animation-delay: 5s;
+}
+
+.orb-particles span:nth-child(7) {
+  top: 20%;
+  left: 70%;
+  animation-delay: 6s;
+}
+
+.orb-particles span:nth-child(8) {
+  bottom: 60%;
+  left: 30%;
+  animation-delay: 7s;
+}
+
+@keyframes orb-particle-float {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-30px) scale(1.5);
+    opacity: 1;
+  }
+}
+
+/* Legacy hero-card styles for backward compatibility */
 .hero-card {
   background: var(--bg-card);
   border-radius: var(--radius-xl);
@@ -2971,6 +3641,86 @@ body::after {
   }
   
   /* ===== MOBILE HERO CARD ===== */
+  .tech-orb-container {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .orb-core {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .orb-glow {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .orb-pulse {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .orb-ring.ring-1 {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .orb-ring.ring-2 {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .orb-ring.ring-3 {
+    width: 260px;
+    height: 260px;
+  }
+  
+  .tech-node {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .node-icon {
+    font-size: 1rem;
+  }
+  
+  .node-label {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+  }
+  
+  /* Update orbit radius for mobile */
+  @keyframes orbit-ai {
+    from { transform: translate(-50%, -50%) rotate(0deg) translateX(120px) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg) translateX(120px) rotate(-360deg); }
+  }
+  
+  @keyframes orbit-quantum {
+    from { transform: translate(-50%, -50%) rotate(60deg) translateX(120px) rotate(-60deg); }
+    to { transform: translate(-50%, -50%) rotate(-300deg) translateX(120px) rotate(300deg); }
+  }
+  
+  @keyframes orbit-blockchain {
+    from { transform: translate(-50%, -50%) rotate(120deg) translateX(120px) rotate(-120deg); }
+    to { transform: translate(-50%, -50%) rotate(480deg) translateX(120px) rotate(-480deg); }
+  }
+  
+  @keyframes orbit-arvr {
+    from { transform: translate(-50%, -50%) rotate(180deg) translateX(120px) rotate(-180deg); }
+    to { transform: translate(-50%, -50%) rotate(-180deg) translateX(120px) rotate(180deg); }
+  }
+  
+  @keyframes orbit-iot {
+    from { transform: translate(-50%, -50%) rotate(240deg) translateX(120px) rotate(-240deg); }
+    to { transform: translate(-50%, -50%) rotate(600deg) translateX(120px) rotate(-600deg); }
+  }
+  
+  @keyframes orbit-cloud {
+    from { transform: translate(-50%, -50%) rotate(300deg) translateX(120px) rotate(-300deg); }
+    to { transform: translate(-50%, -50%) rotate(-60deg) translateX(120px) rotate(60deg); }
+  }
+  
   .hero-card {
     padding: 1.5rem;
     border-radius: 16px;
@@ -4249,4 +4999,69 @@ a:focus {
     padding: 0.5rem 0.75rem;
     font-size: 0.75rem;
   }
+}
+
+.tech-orb-container {
+  width: 250px;
+  height: 250px;
+}
+.orb-core {
+  width: 60px;
+  height: 60px;
+}
+.orb-glow {
+  width: 100px;
+  height: 100px;
+}
+.orb-pulse {
+  width: 150px;
+  height: 150px;
+}
+.orb-ring.ring-1 {
+  width: 100px;
+  height: 100px;
+}
+.orb-ring.ring-2 {
+  width: 150px;
+  height: 150px;
+}
+.orb-ring.ring-3 {
+  width: 200px;
+  height: 200px;
+}
+.tech-node {
+  width: 40px;
+  height: 40px;
+}
+.node-icon {
+  font-size: 0.875rem;
+}
+.node-label {
+  font-size: 0.65rem;
+  padding: 0.15rem 0.5rem;
+}
+/* Update orbit radius for small mobile */
+@keyframes orbit-ai {
+  from { transform: translate(-50%, -50%) rotate(0deg) translateX(100px) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg) translateX(100px) rotate(-360deg); }
+}
+@keyframes orbit-quantum {
+  from { transform: translate(-50%, -50%) rotate(60deg) translateX(100px) rotate(-60deg); }
+  to { transform: translate(-50%, -50%) rotate(-300deg) translateX(100px) rotate(300deg); }
+}
+@keyframes orbit-blockchain {
+  from { transform: translate(-50%, -50%) rotate(120deg) translateX(100px) rotate(-120deg); }
+  to { transform: translate(-50%, -50%) rotate(480deg) translateX(100px) rotate(-480deg); }
+}
+@keyframes orbit-arvr {
+  from { transform: translate(-50%, -50%) rotate(180deg) translateX(100px) rotate(-180deg); }
+  to { transform: translate(-50%, -50%) rotate(-180deg) translateX(100px) rotate(180deg); }
+}
+@keyframes orbit-iot {
+  from { transform: translate(-50%, -50%) rotate(240deg) translateX(100px) rotate(-240deg); }
+  to { transform: translate(-50%, -50%) rotate(600deg) translateX(100px) rotate(-600deg); }
+}
+@keyframes orbit-cloud {
+  from { transform: translate(-50%, -50%) rotate(300deg) translateX(100px) rotate(-300deg); }
+  to { transform: translate(-50%, -50%) rotate(-60deg) translateX(100px) rotate(60deg); }
 }

@@ -701,23 +701,18 @@ body::after {
   }
 }
 
-/* Interactive Quantum Particles */
+/* Static Quantum Particles (Performance Optimized) */
 .quantum-particle {
   position: fixed;
   border-radius: 50%;
   pointer-events: none;
   z-index: -2;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: transform, opacity, left, top;
+  will-change: transform;
   backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
-.quantum-particle:hover {
-  transform: scale(1.5);
-  opacity: 1;
-}
-
-/* Particle glow effects */
+/* Particle glow effects (simplified) */
 .quantum-particle::before {
   content: '';
   position: absolute;
@@ -728,45 +723,49 @@ body::after {
   height: 100%;
   background: inherit;
   border-radius: 50%;
-  filter: blur(2px);
-  opacity: 0.5;
-  animation: particle-pulse 2s ease-in-out infinite;
+  filter: blur(1px);
+  opacity: 0.3;
+  animation: particle-pulse 3s ease-in-out infinite;
 }
 
 @keyframes particle-pulse {
   0%, 100% {
     transform: translate(-50%, -50%) scale(1);
-    opacity: 0.5;
+    opacity: 0.3;
   }
   50% {
-    transform: translate(-50%, -50%) scale(1.5);
-    opacity: 0.2;
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.1;
   }
 }
 
-/* Mouse cursor enhancement */
-body {
-  cursor: auto;
+/* Mobile performance optimizations */
+@media (max-width: 768px) {
+  .quantum-particle::before {
+    animation-duration: 4s;
+  }
+  
+  /* Reduce animation complexity on mobile */
+  .tech-particles span,
+  .image-particles span,
+  .timeline-particles span,
+  .skill-particles span {
+    animation-duration: 4s;
+  }
 }
 
-body::after {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
-  z-index: 9999;
-  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), 
-    rgba(var(--primary-color-rgb), 0.1) 0%, 
-    transparent 100px);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-body.mouse-moving::after {
-  opacity: 1;
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .quantum-particle::before {
+    animation: none;
+  }
+  
+  .tech-particles span,
+  .image-particles span,
+  .timeline-particles span,
+  .skill-particles span {
+    animation: none;
+  }
 }
 
 
@@ -2725,6 +2724,31 @@ body.mouse-moving::after {
 @media (max-width: 768px) {
   .container {
     padding: 0 1rem;
+  }
+  
+  /* Performance optimizations for mobile */
+  * {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  
+  /* Reduce animation complexity on mobile */
+  .hero-card,
+  .tech-item,
+  .skill-item,
+  .project-card,
+  .blog-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  /* Disable complex hover effects on mobile */
+  .hero-card:hover,
+  .tech-item:hover,
+  .skill-item:hover,
+  .project-card:hover,
+  .blog-card:hover {
+    transform: none;
+    box-shadow: var(--shadow-lg);
   }
   
   .navbar .container {

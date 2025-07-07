@@ -3604,6 +3604,10 @@ body::after {
     font-size: 2.25rem;
     line-height: 1.2;
     margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
   }
   
   .greeting {
@@ -4040,6 +4044,10 @@ body::after {
     font-size: 1.875rem;
     line-height: 1.1;
     margin-bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
   }
   
   .greeting {

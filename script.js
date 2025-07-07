@@ -385,12 +385,21 @@ function addNotification(message) {
 // Mobile Menu Toggle
 const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
 const navMenu = document.querySelector('.nav-menu');
+const mobileMenuClose = document.getElementById('mobile-menu-close');
 
 if (mobileMenuToggle && navMenu) {
   mobileMenuToggle.addEventListener('click', () => {
     navMenu.classList.toggle('active');
     mobileMenuToggle.classList.toggle('active');
   });
+  
+  // Close mobile menu with close button
+  if (mobileMenuClose) {
+    mobileMenuClose.addEventListener('click', () => {
+      navMenu.classList.remove('active');
+      mobileMenuToggle.classList.remove('active');
+    });
+  }
   
   // Close mobile menu when clicking on navigation links
   const navLinks = document.querySelectorAll('.nav-link');
